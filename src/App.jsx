@@ -214,21 +214,21 @@ function Hero() {
   const { scrollY } = useScroll()
   const y = useTransform(scrollY, [0, 600], [0, 150])
 
-return (
-    <section id="home" className="min-h-screen relative overflow-hidden flex items-center pt-28 pb-20">
+  return (
+    <section id="home" className="min-h-screen relative overflow-hidden flex items-center pt-24 pb-0">
       {/* Glow Effects - shadcn style */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[400px] overflow-hidden pointer-events-none flex items-center">
-        <div className="absolute left-1/2 -translate-x-1/2 w-[60%] h-[256px] bg-[radial_gradient(ellipse_at_center,rgba(34,211,238,0.5)_10%,transparent_60%)] sm:h-[512px] blur-[100px]" />
-        <div className="absolute left-1/2 -translate-x-1/2 w-[40%] h-[128px] bg-[radial_gradient(ellipse_at_center,rgba(168,85,247,0.3)_10%,transparent_60%)] sm:h-[256px] blur-[80px] mt-20" />
+        <div className="absolute left-1/2 -translate-x-1/2 w-[60%] h-[256px] bg-[radial-gradient(ellipse_at_center,rgba(34,211,238,0.5)_10%,transparent_60%)] sm:h-[512px] blur-[100px]" />
+        <div className="absolute left-1/2 -translate-x-1/2 w-[40%] h-[128px] bg-[radial-gradient(ellipse_at_center,rgba(168,85,247,0.3)_10%,transparent_60%)] sm:h-[256px] blur-[80px] mt-20" />
       </div>
 
-      <div className="absolute inset-0 bg-[radial_gradient(ellipse_at_top,_rgba(34,211,238,0.08)_0%,_transparent_50%)]" />
-      <div className="absolute inset-0 bg-[radial_gradient(ellipse_at_bottom_right,_rgba(168,85,247,0.06)_0%,_transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(34,211,238,0.08)_0%,_transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_rgba(168,85,247,0.06)_0%,_transparent_50%)]" />
       <div className="absolute top-32 left-0 w-[600px] h-[600px] bg-cyan-500/5 rounded-full blur-[180px]" />
       <div className="absolute bottom-0 right-0 w-[700px] h-[700px] bg-purple-500/5 rounded-full blur-[180px]" />
 
       <div className="relative z-10 w-full flex flex-col items-center justify-center">
-        <div className="max-w-7xl mx-auto px-8 py-40 grid lg:grid-cols-2 gap-32 items-center w-full">
+        <div className="max-w-7xl mx-auto px-6 py-32 grid lg:grid-cols-2 gap-24 items-center w-full">
           <motion.div
             initial="initial"
             animate="animate"
@@ -427,59 +427,59 @@ function AppPreview() {
 
 function Journey() {
   return (
-    <section id="journey" className="py-80 relative w-full flex flex-col items-center">
+    <section id="journey" className="py-56 relative w-full flex flex-col items-center">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(168,85,247,0.05)_0%,_transparent_70%)]" />
       
-      <div className="w-full flex flex-col items-center max-w-7xl mx-auto px-6">
+      <div className="w-full flex flex-col items-center max-w-6xl mx-auto px-6">
         <SectionTitle subtitle="Project Journey" title="Development Phases" />
 
-        <div className="relative w-full max-w-6xl">
-          <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-cyan-500 via-purple-500 to-cyan-500 -translate-x-1/2 shadow-[0_0_40px_rgba(34,211,238,0.6)]" />
+        <div className="relative w-full max-w-5xl">
+          <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-cyan-500 via-purple-500 to-cyan-500 -translate-x-1/2 shadow-[0_0_30px_rgba(34,211,238,0.5)]" />
 
           {phases.map((item, i) => {
             const isLeft = i % 2 === 0
             return (
               <motion.div
                 key={item.phase}
-                initial={{ opacity: 0, x: isLeft ? -200 : 200 }}
+                initial={{ opacity: 0, x: isLeft ? -120 : 120 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 1, delay: i * 0.2 }}
-                className="relative flex items-center mb-48 last:mb-0 w-full"
+                transition={{ duration: 0.8, delay: i * 0.15 }}
+                className="relative flex items-center mb-32 last:mb-0 w-full"
               >
                 <div className={`w-1/2 flex ${isLeft ? 'justify-end' : 'justify-start'}`}>
                   {isLeft && (
-                    <div className="glass rounded-3xl p-12 border border-white/10 hover:border-cyan-500/30 transition-all duration-500 max-w-xl text-center -translate-x-16">
+                    <div className="glass rounded-3xl p-10 border border-white/10 hover:border-cyan-500/30 transition-all duration-500 max-w-lg text-center mr-16">
                       <div className="flex items-center justify-center gap-3 mb-6">
-                        <span className="px-6 py-2.5 rounded-full bg-gradient-to-r from-cyan-500/10 to-purple-500/10 text-cyan-400 text-sm font-semibold border border-cyan-500/20">
+                        <span className="px-5 py-2 rounded-full bg-gradient-to-r from-cyan-500/10 to-purple-500/10 text-cyan-400 text-sm font-semibold border border-cyan-500/20">
                           {item.phase}
                         </span>
                       </div>
-                      <h3 className="text-2xl md:text-3xl font-bold mb-6">{item.title}</h3>
+                      <h3 className="text-2xl font-bold mb-5">{item.title}</h3>
                       <p className="text-lg text-slate-400 leading-relaxed">{item.desc}</p>
                     </div>
                   )}
                 </div>
 
-                <div className="absolute left-1/2 -translate-x-1/2 z-20">
+                <div className="absolute left-1/2 -translate-x-1/2 z-10">
                   <motion.div
-                    whileHover={{ scale: 1.5, rotate: 360 }}
+                    whileHover={{ scale: 1.4, rotate: 360 }}
                     transition={{ duration: 0.6 }}
-                    className="w-24 h-24 rounded-3xl bg-gradient-to-br from-cyan-500 to-purple-600 flex items-center justify-center shadow-[0_0_60px_rgba(34,211,238,0.5)] border-2 border-cyan-400/30"
+                    className="w-20 h-20 rounded-3xl bg-gradient-to-br from-cyan-500 to-purple-600 flex items-center justify-center shadow-[0_0_40px_rgba(34,211,238,0.4)]"
                   >
-                    <item.icon className="w-10 h-10 text-white" />
+                    <item.icon className="w-9 h-9 text-white" />
                   </motion.div>
                 </div>
 
                 <div className={`w-1/2 flex ${isLeft ? 'justify-start' : 'justify-end'}`}>
                   {!isLeft && (
-                    <div className="glass rounded-3xl p-12 border border-white/10 hover:border-cyan-500/30 transition-all duration-500 max-w-xl text-center translate-x-16">
+                    <div className="glass rounded-3xl p-10 border border-white/10 hover:border-cyan-500/30 transition-all duration-500 max-w-lg text-center ml-16">
                       <div className="flex items-center justify-center gap-3 mb-6">
-                        <span className="px-6 py-2.5 rounded-full bg-gradient-to-r from-cyan-500/10 to-purple-500/10 text-cyan-400 text-sm font-semibold border border-cyan-500/20">
+                        <span className="px-5 py-2 rounded-full bg-gradient-to-r from-cyan-500/10 to-purple-500/10 text-cyan-400 text-sm font-semibold border border-cyan-500/20">
                           {item.phase}
                         </span>
                       </div>
-                      <h3 className="text-2xl md:text-3xl font-bold mb-6">{item.title}</h3>
+                      <h3 className="text-2xl font-bold mb-5">{item.title}</h3>
                       <p className="text-lg text-slate-400 leading-relaxed">{item.desc}</p>
                     </div>
                   )}
@@ -495,7 +495,7 @@ function Journey() {
 
 function FeatureSection() {
   return (
-    <section id="features" className="py-80 relative w-full flex flex-col items-center">
+    <section id="features" className="py-56 relative w-full flex flex-col items-center">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(34,211,238,0.05)_0%,_transparent_70%)]" />
       
       <div className="w-full flex flex-col items-center max-w-6xl mx-auto px-6">
@@ -578,7 +578,7 @@ function Team() {
   }
 
   return (
-    <section id="team" className="py-80 relative w-full flex flex-col items-center">
+    <section id="team" className="py-56 relative w-full flex flex-col items-center">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(34,211,238,0.05)_0%,_transparent_50%)]" />
       
       <div className="w-full flex flex-col items-center max-w-7xl mx-auto px-6">
@@ -666,7 +666,7 @@ function Team() {
 
 function AboutSection() {
   return (
-    <section id="about" className="py-80 relative w-full flex flex-col items-center">
+    <section id="about" className="py-56 relative w-full flex flex-col items-center">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(34,211,238,0.05)_0%,_transparent_70%)]" />
       
       <div className="w-full flex flex-col items-center max-w-7xl mx-auto px-6">
@@ -768,7 +768,7 @@ function AboutSection() {
 
 function TechSpecs() {
   return (
-    <section id="tech" className="py-80 relative w-full flex flex-col items-center">
+    <section id="tech" className="py-56 relative w-full flex flex-col items-center">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_rgba(59,130,246,0.05)_0%,_transparent_50%)]" />
       <div className="w-full flex flex-col items-center max-w-7xl mx-auto px-6">
         <SectionTitle subtitle="Technical Specs" title="Our Technology Stack" />
