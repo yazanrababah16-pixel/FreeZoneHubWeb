@@ -3,15 +3,15 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { 
   Sparkles, Rocket, Shield, Code2, Database, Cloud, Cpu, Layers, 
   ArrowRight, Menu, X, Car, ShieldCheck, Users, Star, Search, 
-  PenTool, ShieldAlert, ChevronRight
+  PenTool, ShieldAlert, ChevronRight, MessageCircle
 } from 'lucide-react'
 
 const team = [
-  { name: 'Yazan Ali Ahmad Banikhair', role: 'Lead Developer & Testing', icon: '⌘' },
-  { name: 'Adel Abu Hajar', role: 'Backend Developer', icon: '⚡' },
-  { name: 'Ahmad Sadiq', role: 'Backend Developer', icon: '◈' },
-  { name: 'Ahmad Natour', role: 'UI/UX Designer', icon: '◉' },
-  { name: 'Tareq Jarrar', role: 'UI/UX Designer', icon: '◎' },
+  { name: 'Yazan Ali Ahmad Banikhair', role: 'Lead Developer & Testing', wa: 'https://wa.me/962777356430' },
+  { name: 'Adel Abu Hajar', role: 'Backend Developer', wa: 'https://wa.me/96279601436' },
+  { name: 'Ahmad Sadiq', role: 'Backend Developer', wa: 'https://wa.me/962798062360' },
+  { name: 'Ahmad Natour', role: 'UI/UX Designer', wa: 'https://wa.me/962793830307' },
+  { name: 'Tareq Jarrar', role: 'UI/UX Designer', wa: 'https://wa.me/962788602694' },
 ]
 
 const techSpecs = [
@@ -38,13 +38,13 @@ const phases = [
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
+  transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] }
 }
 
 const staggerContainer = {
   animate: {
     transition: {
-      staggerChildren: 0.1
+      staggerChildren: 0.12
     }
   }
 }
@@ -136,23 +136,23 @@ function Hero() {
 
   return (
     <section id="home" className="min-h-screen relative overflow-hidden flex items-center pt-20">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(34,211,238,0.12)_0%,_transparent_50%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_rgba(168,85,247,0.1)_0%,_transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(34,211,238,0.1)_0%,_transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_rgba(168,85,247,0.08)_0%,_transparent_50%)]" />
       <div className="absolute top-40 left-[5%] w-[500px] h-[500px] bg-cyan-500/5 rounded-full blur-[150px]" />
       <div className="absolute bottom-20 right-[5%] w-[600px] h-[600px] bg-purple-500/5 rounded-full blur-[150px]" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-8 py-32 grid lg:grid-cols-2 gap-16 items-center w-full">
+      <div className="relative z-10 max-w-7xl mx-auto px-8 py-40 grid lg:grid-cols-2 gap-20 items-center w-full">
         <motion.div
           initial="initial"
           animate="animate"
           variants={staggerContainer}
         >
-          <motion.div variants={fadeInUp} className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full glass border border-cyan-500/20 mb-8">
+          <motion.div variants={fadeInUp} className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full glass border border-cyan-500/20 mb-10">
             <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
             <span className="text-sm text-slate-300 font-medium">Jordan Free Zone's Premier Platform</span>
           </motion.div>
 
-          <motion.h1 variants={fadeInUp} className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight mb-8">
+          <motion.h1 variants={fadeInUp} className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight mb-10">
             <span className="bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
               FreeZone Hub:
             </span>
@@ -164,7 +164,7 @@ function Hero() {
             <span className="text-white">Car Trading in Jordan</span>
           </motion.h1>
 
-          <motion.p variants={fadeInUp} className="text-lg md:text-xl text-slate-400 mb-12 max-w-xl leading-relaxed">
+          <motion.p variants={fadeInUp} className="text-lg md:text-xl text-slate-400 mb-14 max-w-xl leading-relaxed">
             A smart digital platform for car trading and inspection, bringing complete 
             transparency and modern technology to the Jordan automotive market.
           </motion.p>
@@ -222,7 +222,7 @@ function SectionTitle({ subtitle, title }) {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
+      transition={{ duration: 0.7 }}
       className="text-center mb-20"
     >
       <p className="text-cyan-400 font-medium mb-4 tracking-[0.2em] uppercase text-sm">{subtitle}</p>
@@ -233,63 +233,52 @@ function SectionTitle({ subtitle, title }) {
 
 function Journey() {
   return (
-    <section id="journey" className="py-40 relative">
+    <section id="journey" className="py-48 relative">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(168,85,247,0.06)_0%,_transparent_70%)]" />
+      
       <div className="max-w-6xl mx-auto px-8">
         <SectionTitle subtitle="Project Journey" title="Development Phases" />
 
-        <div className="relative space-y-12">
-          <div className="absolute left-8 lg:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-cyan-500 via-purple-500 to-cyan-500 lg:-translate-x-1/2" />
+        <div className="relative">
+          <div className="absolute left-8 lg:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-cyan-500 via-purple-500 to-cyan-500 lg:-translate-x-1/2 shadow-lg shadow-cyan-500/50" />
 
-          {phases.map((item, i) => (
-            <motion.div
-              key={item.phase}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
-              className={`relative flex items-start gap-8 lg:justify-between ${
-                i % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
-              }`}
-            >
-              <div className="flex items-center gap-8 lg:w-1/2 lg:justify-end">
-                {i % 2 === 0 && (
-                  <div className="glass rounded-2xl p-8 border border-white/10 flex-1 max-w-md">
-                    <div className="flex items-center gap-3 mb-4">
+          {phases.map((item, i) => {
+            const isLeft = i % 2 === 0
+            return (
+              <motion.div
+                key={item.phase}
+                initial={{ opacity: 0, x: isLeft ? -50 : 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: i * 0.1 }}
+                className="relative flex items-center gap-8 mb-16 last:mb-0"
+              >
+                <div className={`flex-1 lg:flex-none lg:w-[45%] ${isLeft ? 'lg:mr-auto lg:pr-12' : 'lg:ml-auto lg:pl-12 order-last'}`}>
+                  <div className="glass rounded-3xl p-10 border border-white/10 hover:border-cyan-500/30 transition-all duration-500 group">
+                    <div className="flex items-center gap-3 mb-5">
                       <span className="px-4 py-1.5 rounded-full bg-gradient-to-r from-cyan-500/10 to-purple-500/10 text-cyan-400 text-xs font-semibold border border-cyan-500/20">
                         {item.phase}
                       </span>
                     </div>
-                    <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-                    <p className="text-slate-400 leading-relaxed">{item.desc}</p>
+                    <h3 className="text-2xl font-bold mb-4 group-hover:text-cyan-400 transition-colors">{item.title}</h3>
+                    <p className="text-slate-400 leading-relaxed text-base">{item.desc}</p>
                   </div>
-                )}
-              </div>
+                </div>
 
-              <div className="absolute left-8 lg:left-1/2 -translate-x-1/2 z-10">
-                <motion.div
-                  whileHover={{ scale: 1.2 }}
-                  className="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-500 to-purple-600 flex items-center justify-center shadow-lg shadow-cyan-500/30"
-                >
-                  <item.icon className="w-6 h-6 text-white" />
-                </motion.div>
-              </div>
+                <div className="absolute left-8 lg:left-1/2 -translate-x-1/2 z-10">
+                  <motion.div
+                    whileHover={{ scale: 1.3, rotate: 360 }}
+                    transition={{ duration: 0.6 }}
+                    className="w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan-500 to-purple-600 flex items-center justify-center shadow-xl shadow-cyan-500/30"
+                  >
+                    <item.icon className="w-7 h-7 text-white" />
+                  </motion.div>
+                </div>
 
-              <div className="flex items-center gap-8 lg:w-1/2 lg:justify-start">
-                {i % 2 !== 0 && (
-                  <div className="glass rounded-2xl p-8 border border-white/10 flex-1 max-w-md">
-                    <div className="flex items-center gap-3 mb-4">
-                      <span className="px-4 py-1.5 rounded-full bg-gradient-to-r from-cyan-500/10 to-purple-500/10 text-cyan-400 text-xs font-semibold border border-cyan-500/20">
-                        {item.phase}
-                      </span>
-                    </div>
-                    <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-                    <p className="text-slate-400 leading-relaxed">{item.desc}</p>
-                  </div>
-                )}
-              </div>
-            </motion.div>
-          ))}
+                <div className={`hidden lg:block lg:w-[45%] ${isLeft ? 'order-last' : ''}`} />
+              </motion.div>
+            )
+          })}
         </div>
       </div>
     </section>
@@ -298,7 +287,7 @@ function Journey() {
 
 function Team() {
   return (
-    <section id="team" className="py-40 relative">
+    <section id="team" className="py-48 relative">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(34,211,238,0.06)_0%,_transparent_50%)]" />
       <div className="max-w-7xl mx-auto px-8">
         <SectionTitle subtitle="The Elite Team" title="Meet Our Innovators" />
@@ -310,15 +299,28 @@ function Team() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
-              whileHover={{ y: -8 }}
-              className="glass rounded-3xl p-8 border border-white/10 text-center group hover:border-cyan-500/30 transition-all duration-500"
+              transition={{ duration: 0.7, delay: i * 0.1 }}
+              whileHover={{ y: -10 }}
+              className="glass rounded-3xl p-8 border border-white/10 text-center hover:border-cyan-500/30 transition-all duration-500"
             >
-              <div className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center text-3xl border border-white/10 group-hover:border-cyan-500/30 transition-all duration-500">
-                {member.icon}
+              <div className="w-24 h-24 mx-auto mb-6 rounded-full bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center text-4xl font-light text-slate-400 border border-white/10">
+                <span className="opacity-60">{member.name.split(' ').map(n => n[0]).join('')}</span>
               </div>
+              
               <h3 className="text-base font-bold mb-2 text-white">{member.name}</h3>
-              <p className="text-sm text-slate-500">{member.role}</p>
+              <p className="text-sm text-slate-500 mb-6">{member.role}</p>
+              
+              <motion.a
+                href={member.wa}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-green-500 to-emerald-600 text-white text-sm font-semibold shadow-lg shadow-green-500/20 hover:shadow-green-500/40 transition-all"
+              >
+                <MessageCircle className="w-4 h-4" />
+                Chat with us
+              </motion.a>
             </motion.div>
           ))}
         </div>
@@ -329,31 +331,31 @@ function Team() {
 
 function TechSpecs() {
   return (
-    <section id="tech" className="py-40 relative">
+    <section id="tech" className="py-48 relative">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_rgba(59,130,246,0.06)_0%,_transparent_50%)]" />
       <div className="max-w-7xl mx-auto px-8">
         <SectionTitle subtitle="Technical Specs" title="Our Technology Stack" />
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {techSpecs.map((tech, i) => (
             <motion.div
               key={tech.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
-              whileHover={{ y: -5 }}
-              className="glass rounded-3xl p-8 border border-white/10 text-center group hover:border-purple-500/30 transition-all duration-500"
+              transition={{ duration: 0.7, delay: i * 0.1 }}
+              whileHover={{ y: -8 }}
+              className="glass rounded-3xl p-10 border border-white/10 text-center group hover:border-purple-500/30 transition-all duration-500"
             >
               <motion.div
                 whileHover={{ rotate: 360 }}
                 transition={{ duration: 0.8 }}
-                className={`w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br ${tech.color} flex items-center justify-center shadow-lg`}
+                className={`w-18 h-18 mx-auto mb-8 rounded-2xl bg-gradient-to-br ${tech.color} flex items-center justify-center shadow-lg p-4`}
               >
-                <tech.icon className="w-7 h-7 text-white" />
+                <tech.icon className="w-9 h-9 text-white" />
               </motion.div>
-              <h3 className="text-xl font-bold mb-3">{tech.title}</h3>
-              <p className="text-slate-500 text-sm leading-relaxed">{tech.desc}</p>
+              <h3 className="text-2xl font-bold mb-4">{tech.title}</h3>
+              <p className="text-slate-500 leading-relaxed">{tech.desc}</p>
             </motion.div>
           ))}
         </div>
@@ -362,16 +364,16 @@ function TechSpecs() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-16 text-center"
+          transition={{ duration: 0.7, delay: 0.3 }}
+          className="mt-20 text-center"
         >
-          <div className="inline-flex items-center gap-6 px-10 py-6 glass rounded-2xl border border-white/10">
-            <span className="text-slate-500">Built with</span>
-            <div className="flex items-center gap-3">
+          <div className="inline-flex items-center gap-8 px-12 py-8 glass rounded-3xl border border-white/10">
+            <span className="text-slate-500 text-lg">Built with</span>
+            <div className="flex items-center gap-4">
               {['Flutter', 'Firebase', 'Dart', 'GCP'].map((tech) => (
                 <span
                   key={tech}
-                  className="px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500/10 to-purple-500/10 text-cyan-400 text-sm font-semibold border border-cyan-500/20"
+                  className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500/10 to-purple-500/10 text-cyan-400 text-sm font-semibold border border-cyan-500/20"
                 >
                   {tech}
                 </span>
@@ -386,7 +388,7 @@ function TechSpecs() {
 
 function Footer() {
   return (
-    <footer className="py-20 glass border-t border-white/5">
+    <footer className="py-24 glass border-t border-white/5">
       <div className="max-w-7xl mx-auto px-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -399,8 +401,8 @@ function Footer() {
           </div>
           <span className="text-2xl font-bold tracking-tight">FreeZone Hub</span>
         </motion.div>
-        <p className="text-slate-500 mb-8 text-lg">Transforming automotive trading in Jordan</p>
-        <div className="flex justify-center gap-8 mb-8">
+        <p className="text-slate-500 mb-10 text-lg">Transforming automotive trading in Jordan</p>
+        <div className="flex justify-center gap-10 mb-10">
           {['GitHub', 'LinkedIn', 'Twitter', 'Instagram'].map((social) => (
             <motion.a
               key={social}
