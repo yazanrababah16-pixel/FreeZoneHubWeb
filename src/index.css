@@ -100,6 +100,11 @@ body {
   animation: pulse-ring 2s ease-out infinite;
 }
 
+.animate-gradient {
+  animation: gradient-shift 3s linear infinite;
+  background-size: 200% auto;
+}
+
 ::-webkit-scrollbar {
   width: 6px;
 }
