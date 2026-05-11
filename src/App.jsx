@@ -2,15 +2,15 @@ import { useState, useEffect } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { 
   Sparkles, Search, PenTool, Code2, ShieldAlert, Car, ShieldCheck, 
-  Users, Star, ChevronRight, MessageCircle, User, Menu, X
+  Users, Star, ChevronRight, MessageCircle, Menu, X
 } from 'lucide-react'
 
 const team = [
-  { name: 'Yazan Ali Ahmad Banikhair', role: 'Lead Developer & Testing', wa: 'https://wa.me/962777356430' },
-  { name: 'Adel Abu Hajar', role: 'Backend Developer', wa: 'https://wa.me/96279601436' },
-  { name: 'Ahmad Sadiq', role: 'Backend Developer', wa: 'https://wa.me/962798062360' },
-  { name: 'Ahmad Natour', role: 'UI/UX Designer', wa: 'https://wa.me/962793830307' },
-  { name: 'Tareq Jarrar', role: 'UI/UX Designer', wa: 'https://wa.me/962788602694' },
+  { name: 'Yazan Ali Ahmad Banikhair', role: 'Lead Developer & Testing', wa: 'https://wa.me/962777356430', image: '/team-yazan.jpg' },
+  { name: 'Adel Abu Hajar', role: 'Backend Developer', wa: 'https://wa.me/96279601436', image: '/team-adel.jpg' },
+  { name: 'Ahmad Sadiq', role: 'Backend Developer', wa: 'https://wa.me/962798062360', image: '/team-ahmad-sadiq.jpg' },
+  { name: 'Ahmad Natour', role: 'UI/UX Designer', wa: 'https://wa.me/962793830307', image: '/team-ahmad-natour.jpg' },
+  { name: 'Tareq Jarrar', role: 'UI/UX Designer', wa: 'https://wa.me/962788602694', image: '/team-tareq.jpg' },
 ]
 
 const techSpecs = [
@@ -301,8 +301,12 @@ function Team() {
               whileHover={{ y: -15 }}
               className="glass rounded-3xl p-10 border border-white/10 text-center hover:border-cyan-500/30 transition-all duration-500 flex flex-col"
             >
-              <div className="w-32 h-32 mx-auto mb-8 rounded-full bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center border border-white/10">
-                <User className="w-14 h-14 text-slate-600" />
+              <div className="w-32 h-32 mx-auto mb-8 rounded-full overflow-hidden border-2 border-cyan-500/30 shadow-lg shadow-cyan-500/20">
+                <img 
+                  src={member.image} 
+                  alt={member.name}
+                  className="w-full h-full object-cover"
+                />
               </div>
               
               <h3 className="text-xl font-bold mb-3 text-white">{member.name}</h3>
