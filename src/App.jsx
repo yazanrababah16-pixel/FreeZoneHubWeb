@@ -3,9 +3,9 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { 
   Sparkles, Search, PenTool, Code2, ShieldAlert, Car, ShieldCheck, 
   Users, Star, ChevronRight, MessageCircle, Menu, X,
-  Shield, DollarSign, Gauge, ClipboardCheck, Smartphone, Lock,
-  TrendingUp, HeadphonesIcon, Building2, Award, Globe, ArrowUpRight,
-  ChevronLeft, ArrowRight
+  Shield, DollarSign, ClipboardCheck, Smartphone, Lock,
+  TrendingUp, Globe, ArrowUpRight,
+  ChevronLeft
 } from 'lucide-react'
 
 const teamGalleryItems = [
@@ -100,26 +100,11 @@ const itemVariants = {
   },
 }
 
-const team = [
-  { name: 'Yazan Ali Ahmad Banikhair', role: 'Lead Developer & Testing', wa: 'https://wa.me/962777356430', image: '/team-yazan.jpg' },
-  { name: 'Adel Abu Hajar', role: 'Backend Developer', wa: 'https://wa.me/96279601436', image: '/team-adel.jpg' },
-  { name: 'Ahmad Sadiq', role: 'Backend Developer', wa: 'https://wa.me/962798062360', image: '/team-ahmad-sadiq.jpg' },
-  { name: 'Ahmad Natour', role: 'UI/UX Designer', wa: 'https://wa.me/962793830307', image: '/team-ahmad-natour.jpg' },
-  { name: 'Tareq Jarrar', role: 'UI/UX Designer', wa: 'https://wa.me/962788602694', image: '/team-tareq.jpg' },
-]
-
 const techSpecs = [
   { icon: Code2, title: 'Flutter', desc: 'Cross-platform mobile framework for iOS & Android', color: 'from-cyan-500 to-blue-500' },
   { icon: Search, title: 'Firebase', desc: 'Real-time database, authentication & cloud functions', color: 'from-amber-500 to-orange-500' },
   { icon: PenTool, title: 'Dart', desc: 'Type-safe programming language optimized for UI', color: 'from-blue-500 to-indigo-500' },
   { icon: ShieldAlert, title: 'Cloud Integration', desc: 'Scalable GCP infrastructure with auto-scaling', color: 'from-purple-500 to-pink-500' },
-]
-
-const stats = [
-  { num: '500+', label: 'Vehicles', icon: Car },
-  { num: '100%', label: 'Verified', icon: ShieldCheck },
-  { num: '2K+', label: 'Users', icon: Users },
-  { num: '4.9', label: 'Rating', icon: Star },
 ]
 
 const phases = [
