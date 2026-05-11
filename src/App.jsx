@@ -2,8 +2,94 @@ import { useState, useEffect } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { 
   Sparkles, Search, PenTool, Code2, ShieldAlert, Car, ShieldCheck, 
-  Users, Star, ChevronRight, MessageCircle, Menu, X
+  Users, Star, ChevronRight, MessageCircle, Menu, X,
+  Shield, DollarSign, Gauge, ClipboardCheck, Smartphone, Lock,
+  TrendingUp, HeadphonesIcon
 } from 'lucide-react'
+
+const featureCategories = [
+  {
+    icon: <Shield className="w-6 h-6" />,
+    title: 'Verification',
+    items: [
+      { text: 'AI-powered vehicle inspection' },
+      { text: 'Verified vehicle history reports' },
+      { text: 'Authenticity guarantees' },
+    ],
+  },
+  {
+    icon: <DollarSign className="w-6 h-6" />,
+    title: 'Trading',
+    items: [
+      { text: 'Transparent pricing system' },
+      { text: 'Secure payment escrow' },
+      { text: 'Instant cash offers' },
+    ],
+  },
+  {
+    icon: <Smartphone className="w-6 h-6" />,
+    title: 'Mobile App',
+    items: [
+      { text: 'Real-time inventory updates' },
+      { text: 'Push notifications for deals' },
+      { text: 'In-app messaging' },
+    ],
+  },
+  {
+    icon: <ClipboardCheck className="w-6 h-6" />,
+    title: 'Inspection',
+    items: [
+      { text: '200-point vehicle check' },
+      { text: 'Digital report generation' },
+      { text: 'Expert mechanic booking' },
+    ],
+  },
+  {
+    icon: <Lock className="w-6 h-6" />,
+    title: 'Security',
+    items: [
+      { text: 'Fraud detection system' },
+      { text: 'Buyer & seller protection' },
+      { text: 'Secure document storage' },
+    ],
+  },
+  {
+    icon: <TrendingUp className="w-6 h-6" />,
+    title: 'Analytics',
+    items: [
+      { text: 'Market price insights' },
+      { text: 'Sales performance tracking' },
+      { text: 'Custom business reports' },
+    ],
+  },
+]
+
+const fadeInUp = {
+  initial: { opacity: 0, y: 40 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] }
+}
+
+const staggerContainer = {
+  animate: {
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+}
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: 'spring',
+      stiffness: 100,
+      damping: 12,
+    },
+  },
+}
 
 const team = [
   { name: 'Yazan Ali Ahmad Banikhair', role: 'Lead Developer & Testing', wa: 'https://wa.me/962777356430', image: '/team-yazan.jpg' },
@@ -33,20 +119,6 @@ const phases = [
   { phase: 'Phase 3', title: 'Development', desc: 'Building a robust cross-platform app with Flutter & Firebase for real-time data synchronization.', icon: Code2 },
   { phase: 'Phase 4', title: 'QA & Optimization', desc: 'Rigorous testing and security hardening to deliver a production-ready experience.', icon: ShieldAlert },
 ]
-
-const fadeInUp = {
-  initial: { opacity: 0, y: 40 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] }
-}
-
-const staggerContainer = {
-  animate: {
-    transition: {
-      staggerChildren: 0.15
-    }
-  }
-}
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -240,7 +312,7 @@ function Journey() {
       <div className="w-full flex flex-col items-center max-w-6xl mx-auto px-6">
         <SectionTitle subtitle="Project Journey" title="Development Phases" />
 
-        <div className="relative w-full max-w-4xl">
+        <div className="relative w-full max-w-5xl">
           <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-cyan-500 via-purple-500 to-cyan-500 -translate-x-1/2 shadow-[0_0_30px_rgba(34,211,238,0.5)]" />
 
           {phases.map((item, i) => {
@@ -248,15 +320,15 @@ function Journey() {
             return (
               <motion.div
                 key={item.phase}
-                initial={{ opacity: 0, x: isLeft ? -80 : 80 }}
+                initial={{ opacity: 0, x: isLeft ? -120 : 120 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: i * 0.15 }}
-                className="relative flex items-center mb-24 last:mb-0 w-full"
+                className="relative flex items-center mb-32 last:mb-0 w-full"
               >
                 <div className={`w-1/2 flex ${isLeft ? 'justify-end' : 'justify-start'}`}>
                   {isLeft && (
-                    <div className="glass rounded-3xl p-10 border border-white/10 hover:border-cyan-500/30 transition-all duration-500 max-w-md text-center">
+                    <div className="glass rounded-3xl p-10 border border-white/10 hover:border-cyan-500/30 transition-all duration-500 max-w-lg text-center mr-16">
                       <div className="flex items-center justify-center gap-3 mb-6">
                         <span className="px-5 py-2 rounded-full bg-gradient-to-r from-cyan-500/10 to-purple-500/10 text-cyan-400 text-sm font-semibold border border-cyan-500/20">
                           {item.phase}
@@ -280,7 +352,7 @@ function Journey() {
 
                 <div className={`w-1/2 flex ${isLeft ? 'justify-start' : 'justify-end'}`}>
                   {!isLeft && (
-                    <div className="glass rounded-3xl p-10 border border-white/10 hover:border-cyan-500/30 transition-all duration-500 max-w-md text-center">
+                    <div className="glass rounded-3xl p-10 border border-white/10 hover:border-cyan-500/30 transition-all duration-500 max-w-lg text-center ml-16">
                       <div className="flex items-center justify-center gap-3 mb-6">
                         <span className="px-5 py-2 rounded-full bg-gradient-to-r from-cyan-500/10 to-purple-500/10 text-cyan-400 text-sm font-semibold border border-cyan-500/20">
                           {item.phase}
@@ -295,6 +367,79 @@ function Journey() {
             )
           })}
         </div>
+      </div>
+    </section>
+  )
+}
+
+function FeatureSection() {
+  return (
+    <section id="features" className="py-56 relative w-full flex flex-col items-center">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(34,211,238,0.05)_0%,_transparent_70%)]" />
+      
+      <div className="w-full flex flex-col items-center max-w-6xl mx-auto px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16 w-full"
+        >
+          <p className="text-cyan-400 font-medium mb-6 tracking-[0.25em] uppercase text-sm">Platform Features</p>
+          <h2 className="text-5xl md:text-6xl font-bold tracking-tight mb-6">
+            Designed <span className="text-pink-400">for You</span>
+          </h2>
+          <p className="text-xl text-slate-400 max-w-2xl mx-auto">
+            Everything you need for seamless car trading and inspection in Jordan's free zone market.
+          </p>
+        </motion.div>
+
+        <motion.div
+          className="w-full glass rounded-3xl border border-white/10 p-8 md:p-12"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={staggerContainer}
+        >
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-12">
+            {featureCategories.map((category, index) => (
+              <motion.div
+                key={index}
+                variants={itemVariants}
+                className="flex flex-col items-center text-center"
+              >
+                <div className="mb-4 text-pink-400">{category.icon}</div>
+                <h3 className="font-semibold text-white text-lg mb-3">
+                  {category.title}
+                </h3>
+                <ul className="space-y-2 text-slate-400">
+                  {category.items.map((item, itemIndex) => (
+                    <li key={itemIndex} className="text-sm">
+                      {item.text}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ delay: 0.5, duration: 0.5 }}
+            className="mt-16 flex justify-center"
+          >
+            <motion.button
+              whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(34,211,238,0.4)' }}
+              whileTap={{ scale: 0.95 }}
+              className="px-10 py-5 rounded-2xl font-semibold bg-gradient-to-r from-cyan-500 via-purple-500 to-cyan-500 text-white shadow-2xl shadow-cyan-500/20 flex items-center gap-3 text-lg"
+            >
+              Explore All Features
+              <ChevronRight className="w-5 h-5" />
+            </motion.button>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   )
@@ -447,6 +592,7 @@ function App() {
       <Navbar />
       <Hero />
       <Journey />
+      <FeatureSection />
       <Team />
       <TechSpecs />
       <Footer />
