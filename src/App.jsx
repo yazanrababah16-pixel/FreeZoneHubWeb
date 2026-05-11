@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { 
-  Sparkles, Rocket, Shield, Code2, Database, Cloud, Cpu, Layers, 
-  ArrowRight, Menu, X, Car, ShieldCheck, Users, Star, Search, 
-  PenTool, ShieldAlert, ChevronRight, MessageCircle
+  Sparkles, Search, PenTool, Code2, ShieldAlert, Car, ShieldCheck, 
+  Users, Star, ChevronRight, MessageCircle, User, Menu, X
 } from 'lucide-react'
 
 const team = [
@@ -15,10 +14,10 @@ const team = [
 ]
 
 const techSpecs = [
-  { icon: Code2, title: 'Flutter', desc: 'Cross-platform mobile framework', color: 'from-cyan-500 to-blue-500' },
-  { icon: Database, title: 'Firebase', desc: 'Real-time database & auth', color: 'from-amber-500 to-orange-500' },
-  { icon: Cpu, title: 'Dart', desc: 'Type-safe programming language', color: 'from-blue-500 to-indigo-500' },
-  { icon: Cloud, title: 'Cloud Integration', desc: 'Scalable cloud infrastructure', color: 'from-purple-500 to-pink-500' },
+  { icon: Code2, title: 'Flutter', desc: 'Cross-platform mobile framework for iOS & Android', color: 'from-cyan-500 to-blue-500' },
+  { icon: Search, title: 'Firebase', desc: 'Real-time database, authentication & cloud functions', color: 'from-amber-500 to-orange-500' },
+  { icon: PenTool, title: 'Dart', desc: 'Type-safe programming language optimized for UI', color: 'from-blue-500 to-indigo-500' },
+  { icon: ShieldAlert, title: 'Cloud Integration', desc: 'Scalable GCP infrastructure with auto-scaling', color: 'from-purple-500 to-pink-500' },
 ]
 
 const stats = [
@@ -36,15 +35,15 @@ const phases = [
 ]
 
 const fadeInUp = {
-  initial: { opacity: 0, y: 30 },
+  initial: { opacity: 0, y: 40 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] }
+  transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] }
 }
 
 const staggerContainer = {
   animate: {
     transition: {
-      staggerChildren: 0.12
+      staggerChildren: 0.15
     }
   }
 }
@@ -65,30 +64,30 @@ function Navbar() {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.6 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? 'glass shadow-2xl shadow-black/20' : 'bg-transparent'
+      transition={{ duration: 0.8 }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
+        scrolled ? 'glass shadow-2xl shadow-black/30' : 'bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-8 py-5 flex items-center justify-between">
-        <motion.div whileHover={{ scale: 1.02 }} className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-400 to-purple-500 flex items-center justify-center shadow-lg shadow-cyan-500/20">
-            <Sparkles className="w-5 h-5 text-white" />
+      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-20">
+        <motion.div whileHover={{ scale: 1.03 }} className="flex items-center gap-3">
+          <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-cyan-400 to-purple-500 flex items-center justify-center shadow-xl shadow-cyan-500/25">
+            <Sparkles className="w-6 h-6 text-white" />
           </div>
-          <span className="text-xl font-bold tracking-tight">FreeZone Hub</span>
+          <span className="text-2xl font-bold tracking-tight">FreeZone Hub</span>
         </motion.div>
 
-        <div className="hidden md:flex items-center gap-10">
+        <div className="hidden md:flex items-center gap-12">
           {navItems.map((item) => (
             <motion.a
               key={item}
               href={`#${item.toLowerCase()}`}
-              className="text-sm font-medium text-slate-400 hover:text-white transition-colors relative"
-              whileHover={{ y: -2 }}
+              className="text-base font-medium text-slate-400 hover:text-white transition-colors relative"
+              whileHover={{ y: -3 }}
             >
               {item}
               <motion.span 
-                className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-purple-500"
+                className="absolute -bottom-2 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-purple-500"
                 whileHover={{ width: '100%' }}
                 transition={{ duration: 0.3 }}
               />
@@ -97,14 +96,14 @@ function Navbar() {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-500 text-white text-sm font-semibold shadow-lg shadow-cyan-500/25"
+            className="px-7 py-3 rounded-2xl bg-gradient-to-r from-cyan-500 to-purple-500 text-white text-sm font-semibold shadow-xl shadow-cyan-500/25"
           >
             Get Started
           </motion.button>
         </div>
 
-        <button className="md:hidden text-white p-2" onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        <button className="md:hidden text-white p-3" onClick={() => setIsOpen(!isOpen)}>
+          {isOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
         </button>
       </div>
 
@@ -118,7 +117,7 @@ function Navbar() {
             <a
               key={item}
               href={`#${item.toLowerCase()}`}
-              className="block px-8 py-4 text-slate-400 hover:text-white"
+              className="block px-8 py-5 text-slate-400 hover:text-white text-lg"
               onClick={() => setIsOpen(false)}
             >
               {item}
@@ -132,27 +131,27 @@ function Navbar() {
 
 function Hero() {
   const { scrollY } = useScroll()
-  const y = useTransform(scrollY, [0, 500], [0, 100])
+  const y = useTransform(scrollY, [0, 600], [0, 150])
 
   return (
-    <section id="home" className="min-h-screen relative overflow-hidden flex items-center pt-20">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(34,211,238,0.1)_0%,_transparent_50%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_rgba(168,85,247,0.08)_0%,_transparent_50%)]" />
-      <div className="absolute top-40 left-[5%] w-[500px] h-[500px] bg-cyan-500/5 rounded-full blur-[150px]" />
-      <div className="absolute bottom-20 right-[5%] w-[600px] h-[600px] bg-purple-500/5 rounded-full blur-[150px]" />
+    <section id="home" className="min-h-screen relative overflow-hidden flex items-center pt-24">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(34,211,238,0.08)_0%,_transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_rgba(168,85,247,0.06)_0%,_transparent_50%)]" />
+      <div className="absolute top-32 left-0 w-[600px] h-[600px] bg-cyan-500/5 rounded-full blur-[180px]" />
+      <div className="absolute bottom-0 right-0 w-[700px] h-[700px] bg-purple-500/5 rounded-full blur-[180px]" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-8 py-40 grid lg:grid-cols-2 gap-20 items-center w-full">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-32 grid lg:grid-cols-2 gap-24 items-center w-full">
         <motion.div
           initial="initial"
           animate="animate"
           variants={staggerContainer}
         >
-          <motion.div variants={fadeInUp} className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full glass border border-cyan-500/20 mb-10">
-            <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
-            <span className="text-sm text-slate-300 font-medium">Jordan Free Zone's Premier Platform</span>
+          <motion.div variants={fadeInUp} className="inline-flex items-center gap-3 px-6 py-3 rounded-full glass border border-cyan-500/20 mb-12">
+            <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse" />
+            <span className="text-base text-slate-300 font-medium">Jordan Free Zone's Premier Platform</span>
           </motion.div>
 
-          <motion.h1 variants={fadeInUp} className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight mb-10">
+          <motion.h1 variants={fadeInUp} className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.05] tracking-tight mb-12">
             <span className="bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
               FreeZone Hub:
             </span>
@@ -164,47 +163,46 @@ function Hero() {
             <span className="text-white">Car Trading in Jordan</span>
           </motion.h1>
 
-          <motion.p variants={fadeInUp} className="text-lg md:text-xl text-slate-400 mb-14 max-w-xl leading-relaxed">
+          <motion.p variants={fadeInUp} className="text-xl md:text-2xl text-slate-400 mb-16 max-w-2xl leading-relaxed">
             A smart digital platform for car trading and inspection, bringing complete 
             transparency and modern technology to the Jordan automotive market.
           </motion.p>
 
-          <motion.div variants={fadeInUp} className="flex flex-wrap gap-5">
+          <motion.div variants={fadeInUp} className="flex flex-wrap gap-6">
             <motion.button
-              whileHover={{ scale: 1.03, boxShadow: '0 0 50px rgba(34,211,238,0.3)' }}
-              whileTap={{ scale: 0.97 }}
-              className="px-8 py-4 rounded-xl font-semibold bg-gradient-to-r from-cyan-500 via-purple-500 to-cyan-500 text-white shadow-xl shadow-cyan-500/20 flex items-center gap-3"
+              whileHover={{ scale: 1.05, boxShadow: '0 0 60px rgba(34,211,238,0.4)' }}
+              whileTap={{ scale: 0.95 }}
+              className="px-10 py-5 rounded-2xl font-semibold bg-gradient-to-r from-cyan-500 via-purple-500 to-cyan-500 text-white shadow-2xl shadow-cyan-500/20 flex items-center gap-3 text-lg"
             >
               Explore Platform
-              <ChevronRight className="w-4 h-4" />
+              <ChevronRight className="w-5 h-5" />
             </motion.button>
             <motion.button
-              whileHover={{ scale: 1.03, backgroundColor: 'rgba(255,255,255,0.1)' }}
-              whileTap={{ scale: 0.97 }}
-              className="px-8 py-4 rounded-xl font-semibold glass text-white flex items-center gap-3"
+              whileHover={{ scale: 1.05, backgroundColor: 'rgba(255,255,255,0.08)' }}
+              whileTap={{ scale: 0.95 }}
+              className="px-10 py-5 rounded-2xl font-semibold glass text-white flex items-center gap-3 text-lg"
             >
               Watch Demo
-              <ArrowRight className="w-4 h-4" />
             </motion.button>
           </motion.div>
         </motion.div>
 
         <motion.div style={{ y }} className="hidden lg:block">
           <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-purple-500/20 rounded-3xl blur-3xl" />
-            <div className="relative glass rounded-3xl p-10 border border-white/10">
-              <div className="grid grid-cols-2 gap-6">
+            <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-purple-500/20 rounded-[3rem] blur-3xl" />
+            <div className="relative glass rounded-[3rem] p-12 border border-white/10">
+              <div className="grid grid-cols-2 gap-8">
                 {stats.map((stat, i) => (
                   <motion.div
                     key={stat.label}
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.4 + i * 0.1 }}
-                    className="glass rounded-2xl p-6 text-center hover:bg-white/5 transition-all duration-300 group"
+                    transition={{ delay: 0.5 + i * 0.1 }}
+                    className="glass rounded-3xl p-8 text-center hover:bg-white/5 transition-all duration-500 group"
                   >
-                    <stat.icon className="w-8 h-8 mx-auto mb-3 text-cyan-400" />
-                    <div className="text-3xl font-bold text-white mb-1">{stat.num}</div>
-                    <div className="text-sm text-slate-500">{stat.label}</div>
+                    <stat.icon className="w-10 h-10 mx-auto mb-4 text-cyan-400" />
+                    <div className="text-4xl font-bold text-white mb-2">{stat.num}</div>
+                    <div className="text-base text-slate-500">{stat.label}</div>
                   </motion.div>
                 ))}
               </div>
@@ -219,63 +217,63 @@ function Hero() {
 function SectionTitle({ subtitle, title }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.7 }}
-      className="text-center mb-20"
+      transition={{ duration: 0.8 }}
+      className="text-center mb-24"
     >
-      <p className="text-cyan-400 font-medium mb-4 tracking-[0.2em] uppercase text-sm">{subtitle}</p>
-      <h2 className="text-4xl md:text-5xl font-bold tracking-tight">{title}</h2>
+      <p className="text-cyan-400 font-medium mb-6 tracking-[0.25em] uppercase text-sm">{subtitle}</p>
+      <h2 className="text-5xl md:text-6xl font-bold tracking-tight">{title}</h2>
     </motion.div>
   )
 }
 
 function Journey() {
   return (
-    <section id="journey" className="py-48 relative">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(168,85,247,0.06)_0%,_transparent_70%)]" />
+    <section id="journey" className="py-56 relative">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(168,85,247,0.05)_0%,_transparent_70%)]" />
       
-      <div className="max-w-6xl mx-auto px-8">
+      <div className="max-w-6xl mx-auto px-6">
         <SectionTitle subtitle="Project Journey" title="Development Phases" />
 
         <div className="relative">
-          <div className="absolute left-8 lg:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-cyan-500 via-purple-500 to-cyan-500 lg:-translate-x-1/2 shadow-lg shadow-cyan-500/50" />
+          <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-cyan-500 via-purple-500 to-cyan-500 -translate-x-1/2 shadow-[0_0_30px_rgba(34,211,238,0.5)]" />
 
           {phases.map((item, i) => {
             const isLeft = i % 2 === 0
             return (
               <motion.div
                 key={item.phase}
-                initial={{ opacity: 0, x: isLeft ? -50 : 50 }}
+                initial={{ opacity: 0, x: isLeft ? -80 : 80 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: i * 0.1 }}
-                className="relative flex items-center gap-8 mb-16 last:mb-0"
+                transition={{ duration: 0.8, delay: i * 0.15 }}
+                className="relative flex items-center mb-24 last:mb-0"
               >
-                <div className={`flex-1 lg:flex-none lg:w-[45%] ${isLeft ? 'lg:mr-auto lg:pr-12' : 'lg:ml-auto lg:pl-12 order-last'}`}>
-                  <div className="glass rounded-3xl p-10 border border-white/10 hover:border-cyan-500/30 transition-all duration-500 group">
-                    <div className="flex items-center gap-3 mb-5">
-                      <span className="px-4 py-1.5 rounded-full bg-gradient-to-r from-cyan-500/10 to-purple-500/10 text-cyan-400 text-xs font-semibold border border-cyan-500/20">
+                <div className={`w-1/2 ${isLeft ? 'pr-16 text-right' : 'pl-16 text-left order-last'}`}>
+                  <div className="glass rounded-3xl p-10 border border-white/10 hover:border-cyan-500/30 transition-all duration-500 group inline-block max-w-lg">
+                    <div className="flex items-center gap-3 mb-6 justify-start">
+                      <span className="px-5 py-2 rounded-full bg-gradient-to-r from-cyan-500/10 to-purple-500/10 text-cyan-400 text-sm font-semibold border border-cyan-500/20">
                         {item.phase}
                       </span>
                     </div>
-                    <h3 className="text-2xl font-bold mb-4 group-hover:text-cyan-400 transition-colors">{item.title}</h3>
-                    <p className="text-slate-400 leading-relaxed text-base">{item.desc}</p>
+                    <h3 className="text-3xl font-bold mb-5 group-hover:text-cyan-400 transition-colors">{item.title}</h3>
+                    <p className="text-lg text-slate-400 leading-relaxed">{item.desc}</p>
                   </div>
                 </div>
 
-                <div className="absolute left-8 lg:left-1/2 -translate-x-1/2 z-10">
+                <div className="absolute left-1/2 -translate-x-1/2 z-10">
                   <motion.div
-                    whileHover={{ scale: 1.3, rotate: 360 }}
+                    whileHover={{ scale: 1.4, rotate: 360 }}
                     transition={{ duration: 0.6 }}
-                    className="w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan-500 to-purple-600 flex items-center justify-center shadow-xl shadow-cyan-500/30"
+                    className="w-20 h-20 rounded-3xl bg-gradient-to-br from-cyan-500 to-purple-600 flex items-center justify-center shadow-[0_0_40px_rgba(34,211,238,0.4)]"
                   >
-                    <item.icon className="w-7 h-7 text-white" />
+                    <item.icon className="w-9 h-9 text-white" />
                   </motion.div>
                 </div>
 
-                <div className={`hidden lg:block lg:w-[45%] ${isLeft ? 'order-last' : ''}`} />
+                <div className={`w-1/2 ${isLeft ? 'pl-16 order-last' : 'pr-16 text-right'}`} />
               </motion.div>
             )
           })}
@@ -287,28 +285,28 @@ function Journey() {
 
 function Team() {
   return (
-    <section id="team" className="py-48 relative">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(34,211,238,0.06)_0%,_transparent_50%)]" />
-      <div className="max-w-7xl mx-auto px-8">
+    <section id="team" className="py-56 relative">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(34,211,238,0.05)_0%,_transparent_50%)]" />
+      <div className="max-w-7xl mx-auto px-6">
         <SectionTitle subtitle="The Elite Team" title="Meet Our Innovators" />
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-10">
           {team.map((member, i) => (
             <motion.div
               key={member.name}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: i * 0.1 }}
-              whileHover={{ y: -10 }}
-              className="glass rounded-3xl p-8 border border-white/10 text-center hover:border-cyan-500/30 transition-all duration-500"
+              transition={{ duration: 0.8, delay: i * 0.1 }}
+              whileHover={{ y: -15 }}
+              className="glass rounded-3xl p-10 border border-white/10 text-center hover:border-cyan-500/30 transition-all duration-500 flex flex-col"
             >
-              <div className="w-24 h-24 mx-auto mb-6 rounded-full bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center text-4xl font-light text-slate-400 border border-white/10">
-                <span className="opacity-60">{member.name.split(' ').map(n => n[0]).join('')}</span>
+              <div className="w-32 h-32 mx-auto mb-8 rounded-full bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center border border-white/10">
+                <User className="w-14 h-14 text-slate-600" />
               </div>
               
-              <h3 className="text-base font-bold mb-2 text-white">{member.name}</h3>
-              <p className="text-sm text-slate-500 mb-6">{member.role}</p>
+              <h3 className="text-xl font-bold mb-3 text-white">{member.name}</h3>
+              <p className="text-base text-slate-500 mb-8 flex-grow">{member.role}</p>
               
               <motion.a
                 href={member.wa}
@@ -316,9 +314,9 @@ function Team() {
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-green-500 to-emerald-600 text-white text-sm font-semibold shadow-lg shadow-green-500/20 hover:shadow-green-500/40 transition-all"
+                className="inline-flex items-center justify-center gap-3 px-6 py-3.5 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 text-white font-semibold shadow-xl shadow-green-500/20 hover:shadow-green-500/40 transition-all"
               >
-                <MessageCircle className="w-4 h-4" />
+                <MessageCircle className="w-5 h-5" />
                 Chat with us
               </motion.a>
             </motion.div>
@@ -331,49 +329,49 @@ function Team() {
 
 function TechSpecs() {
   return (
-    <section id="tech" className="py-48 relative">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_rgba(59,130,246,0.06)_0%,_transparent_50%)]" />
-      <div className="max-w-7xl mx-auto px-8">
+    <section id="tech" className="py-56 relative">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_rgba(59,130,246,0.05)_0%,_transparent_50%)]" />
+      <div className="max-w-7xl mx-auto px-6">
         <SectionTitle subtitle="Technical Specs" title="Our Technology Stack" />
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
           {techSpecs.map((tech, i) => (
             <motion.div
               key={tech.title}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: i * 0.1 }}
-              whileHover={{ y: -8 }}
-              className="glass rounded-3xl p-10 border border-white/10 text-center group hover:border-purple-500/30 transition-all duration-500"
+              transition={{ duration: 0.8, delay: i * 0.1 }}
+              whileHover={{ y: -12 }}
+              className="glass rounded-3xl p-12 border border-white/10 text-center group hover:border-purple-500/30 transition-all duration-500"
             >
               <motion.div
                 whileHover={{ rotate: 360 }}
-                transition={{ duration: 0.8 }}
-                className={`w-18 h-18 mx-auto mb-8 rounded-2xl bg-gradient-to-br ${tech.color} flex items-center justify-center shadow-lg p-4`}
+                transition={{ duration: 1 }}
+                className={`w-24 h-24 mx-auto mb-10 rounded-3xl bg-gradient-to-br ${tech.color} flex items-center justify-center shadow-2xl p-6`}
               >
-                <tech.icon className="w-9 h-9 text-white" />
+                <tech.icon className="w-12 h-12 text-white" />
               </motion.div>
-              <h3 className="text-2xl font-bold mb-4">{tech.title}</h3>
-              <p className="text-slate-500 leading-relaxed">{tech.desc}</p>
+              <h3 className="text-3xl font-bold mb-6">{tech.title}</h3>
+              <p className="text-lg text-slate-500 leading-relaxed">{tech.desc}</p>
             </motion.div>
           ))}
         </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.3 }}
-          className="mt-20 text-center"
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="mt-24 text-center"
         >
-          <div className="inline-flex items-center gap-8 px-12 py-8 glass rounded-3xl border border-white/10">
-            <span className="text-slate-500 text-lg">Built with</span>
-            <div className="flex items-center gap-4">
+          <div className="inline-flex items-center gap-10 px-16 py-10 glass rounded-3xl border border-white/10">
+            <span className="text-xl text-slate-500">Built with</span>
+            <div className="flex items-center gap-5">
               {['Flutter', 'Firebase', 'Dart', 'GCP'].map((tech) => (
                 <span
                   key={tech}
-                  className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500/10 to-purple-500/10 text-cyan-400 text-sm font-semibold border border-cyan-500/20"
+                  className="px-6 py-3 rounded-2xl bg-gradient-to-r from-cyan-500/10 to-purple-500/10 text-cyan-400 text-base font-semibold border border-cyan-500/20"
                 >
                   {tech}
                 </span>
@@ -388,33 +386,33 @@ function TechSpecs() {
 
 function Footer() {
   return (
-    <footer className="py-24 glass border-t border-white/5">
-      <div className="max-w-7xl mx-auto px-8 text-center">
+    <footer className="py-28 glass border-t border-white/5">
+      <div className="max-w-7xl mx-auto px-6 text-center">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="flex items-center justify-center gap-3 mb-8"
+          className="flex items-center justify-center gap-4 mb-10"
         >
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-400 to-purple-500 flex items-center justify-center shadow-lg shadow-cyan-500/20">
-            <Sparkles className="w-5 h-5 text-white" />
+          <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-cyan-400 to-purple-500 flex items-center justify-center shadow-xl shadow-cyan-500/25">
+            <Sparkles className="w-6 h-6 text-white" />
           </div>
-          <span className="text-2xl font-bold tracking-tight">FreeZone Hub</span>
+          <span className="text-3xl font-bold tracking-tight">FreeZone Hub</span>
         </motion.div>
-        <p className="text-slate-500 mb-10 text-lg">Transforming automotive trading in Jordan</p>
-        <div className="flex justify-center gap-10 mb-10">
+        <p className="text-xl text-slate-500 mb-12">Transforming automotive trading in Jordan</p>
+        <div className="flex justify-center gap-12 mb-12">
           {['GitHub', 'LinkedIn', 'Twitter', 'Instagram'].map((social) => (
             <motion.a
               key={social}
               href="#"
-              whileHover={{ y: -3, color: '#22d3ee' }}
-              className="text-slate-500 transition-colors hover:text-cyan-400"
+              whileHover={{ y: -5, color: '#22d3ee' }}
+              className="text-lg text-slate-500 transition-colors hover:text-cyan-400"
             >
               {social}
             </motion.a>
           ))}
         </div>
-        <div className="text-slate-600 text-sm">
+        <div className="text-slate-600 text-base">
           © 2026 FreeZone Hub. All rights reserved.
         </div>
       </div>
