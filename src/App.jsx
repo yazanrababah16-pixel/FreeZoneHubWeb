@@ -136,80 +136,82 @@ function Hero() {
   return (
     <section id="home" className="min-h-screen relative overflow-hidden flex items-center pt-24 pb-0">
       {/* Glow Effects - shadcn style */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[400px] overflow-hidden pointer-events-none">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[400px] overflow-hidden pointer-events-none flex items-center">
         <div className="absolute left-1/2 -translate-x-1/2 w-[60%] h-[256px] bg-[radial-gradient(ellipse_at_center,rgba(34,211,238,0.5)_10%,transparent_60%)] sm:h-[512px] blur-[100px]" />
         <div className="absolute left-1/2 -translate-x-1/2 w-[40%] h-[128px] bg-[radial-gradient(ellipse_at_center,rgba(168,85,247,0.3)_10%,transparent_60%)] sm:h-[256px] blur-[80px] mt-20" />
       </div>
 
-      <div className="absolute inset-0 bg-[radial_gradient(ellipse_at_top,_rgba(34,211,238,0.08)_0%,_transparent_50%)]" />
-      <div className="absolute inset-0 bg-[radial_gradient(ellipse_at_bottom_right,_rgba(168,85,247,0.06)_0%,_transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(34,211,238,0.08)_0%,_transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_rgba(168,85,247,0.06)_0%,_transparent_50%)]" />
       <div className="absolute top-32 left-0 w-[600px] h-[600px] bg-cyan-500/5 rounded-full blur-[180px]" />
       <div className="absolute bottom-0 right-0 w-[700px] h-[700px] bg-purple-500/5 rounded-full blur-[180px]" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-32 grid lg:grid-cols-2 gap-24 items-center w-full">
-        <motion.div
-          initial="initial"
-          animate="animate"
-          variants={staggerContainer}
-        >
-          <motion.div variants={fadeInUp} className="inline-flex items-center gap-3 px-6 py-3 rounded-full glass border border-cyan-500/20 mb-12">
-            <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse" />
-            <span className="text-base text-slate-300 font-medium">Jordan Free Zone's Premier Platform</span>
+      <div className="relative z-10 w-full flex flex-col items-center justify-center">
+        <div className="max-w-7xl mx-auto px-6 py-32 grid lg:grid-cols-2 gap-24 items-center w-full">
+          <motion.div
+            initial="initial"
+            animate="animate"
+            variants={staggerContainer}
+            className="flex flex-col items-center text-center"
+          >
+            <motion.div variants={fadeInUp} className="inline-flex items-center gap-3 px-6 py-3 rounded-full glass border border-cyan-500/20 mb-12">
+              <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse" />
+              <span className="text-base text-slate-300 font-medium">Jordan Free Zone's Premier Platform</span>
+            </motion.div>
+
+            <motion.h1 variants={fadeInUp} className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.05] tracking-tight mb-12 relative">
+              <span className="bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
+                FreeZone Hub:
+              </span>
+              <br />
+              <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
+                Redefining
+              </span>
+              <br />
+              <span className="text-white">Car Trading in Jordan</span>
+            </motion.h1>
+
+            <motion.p variants={fadeInUp} className="text-xl md:text-2xl text-slate-400 mb-16 max-w-2xl leading-relaxed">
+              A smart digital platform for car trading and inspection, bringing complete 
+              transparency and modern technology to the Jordan automotive market.
+            </motion.p>
+
+            <motion.div variants={fadeInUp} className="flex flex-wrap gap-6 justify-center">
+              <motion.button
+                whileHover={{ scale: 1.05, boxShadow: '0 0 60px rgba(34,211,238,0.4)' }}
+                whileTap={{ scale: 0.95 }}
+                className="px-10 py-5 rounded-2xl font-semibold bg-gradient-to-r from-cyan-500 via-purple-500 to-cyan-500 text-white shadow-2xl shadow-cyan-500/20 flex items-center gap-3 text-lg"
+              >
+                Get Started
+                <ChevronRight className="w-5 h-5" />
+              </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(168,85,247,0.3)' }}
+                whileTap={{ scale: 0.95 }}
+                className="px-10 py-5 rounded-2xl font-semibold glass border border-white/10 text-white flex items-center gap-3 text-lg hover:bg-white/5"
+              >
+                View Demo
+              </motion.button>
+            </motion.div>
           </motion.div>
 
-          <motion.h1 variants={fadeInUp} className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.05] tracking-tight mb-12 relative">
-            <span className="bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
-              FreeZone Hub:
-            </span>
-            <br />
-            <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
-              Redefining
-            </span>
-            <br />
-            <span className="text-white">Car Trading in Jordan</span>
-          </motion.h1>
-
-          <motion.p variants={fadeInUp} className="text-xl md:text-2xl text-slate-400 mb-16 max-w-2xl leading-relaxed">
-            A smart digital platform for car trading and inspection, bringing complete 
-            transparency and modern technology to the Jordan automotive market.
-          </motion.p>
-
-          <motion.div variants={fadeInUp} className="flex flex-wrap gap-6">
-            <motion.button
-              whileHover={{ scale: 1.05, boxShadow: '0 0 60px rgba(34,211,238,0.4)' }}
-              whileTap={{ scale: 0.95 }}
-              className="px-10 py-5 rounded-2xl font-semibold bg-gradient-to-r from-cyan-500 via-purple-500 to-cyan-500 text-white shadow-2xl shadow-cyan-500/20 flex items-center gap-3 text-lg"
-            >
-              Get Started
-              <ChevronRight className="w-5 h-5" />
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(168,85,247,0.3)' }}
-              whileTap={{ scale: 0.95 }}
-              className="px-10 py-5 rounded-2xl font-semibold glass border border-white/10 text-white flex items-center gap-3 text-lg hover:bg-white/5"
-            >
-              View Demo
-            </motion.button>
-          </motion.div>
-        </motion.div>
-
-        <motion.div style={{ y }} className="hidden lg:block relative">
-          <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-purple-500/20 rounded-[3rem] blur-3xl" />
-            <div className="relative glass rounded-[3rem] p-8 border border-white/10">
-              <div className="bg-slate-900/50 rounded-2xl p-6 aspect-video flex items-center justify-center">
-                <div className="text-center">
-                  <Car className="w-20 h-20 mx-auto mb-4 text-cyan-400" />
-                  <p className="text-slate-400 text-lg">App Preview</p>
-                  <p className="text-slate-600 text-sm mt-2">Coming Soon</p>
+          <motion.div style={{ y }} className="hidden lg:block relative">
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-purple-500/20 rounded-[3rem] blur-3xl" />
+              <div className="relative glass rounded-[3rem] p-8 border border-white/10">
+                <div className="bg-slate-900/50 rounded-2xl p-6 aspect-video flex items-center justify-center">
+                  <div className="text-center">
+                    <Car className="w-20 h-20 mx-auto mb-4 text-cyan-400" />
+                    <p className="text-slate-400 text-lg">App Preview</p>
+                    <p className="text-slate-600 text-sm mt-2">Coming Soon</p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
       </div>
 
-      {/* Bottom fade effect */}
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#030712] to-transparent pointer-events-none" />
     </section>
   )
@@ -222,7 +224,7 @@ function SectionTitle({ subtitle, title }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
-      className="text-center mb-24"
+      className="text-center mb-24 w-full"
     >
       <p className="text-cyan-400 font-medium mb-6 tracking-[0.25em] uppercase text-sm">{subtitle}</p>
       <h2 className="text-5xl md:text-6xl font-bold tracking-tight">{title}</h2>
@@ -232,13 +234,13 @@ function SectionTitle({ subtitle, title }) {
 
 function Journey() {
   return (
-    <section id="journey" className="py-56 relative">
+    <section id="journey" className="py-56 relative w-full flex flex-col items-center">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(168,85,247,0.05)_0%,_transparent_70%)]" />
       
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="w-full flex flex-col items-center max-w-6xl mx-auto px-6">
         <SectionTitle subtitle="Project Journey" title="Development Phases" />
 
-        <div className="relative">
+        <div className="relative w-full max-w-4xl">
           <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-cyan-500 via-purple-500 to-cyan-500 -translate-x-1/2 shadow-[0_0_30px_rgba(34,211,238,0.5)]" />
 
           {phases.map((item, i) => {
@@ -250,18 +252,20 @@ function Journey() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: i * 0.15 }}
-                className="relative flex items-center mb-24 last:mb-0"
+                className="relative flex items-center mb-24 last:mb-0 w-full"
               >
-                <div className={`w-1/2 ${isLeft ? 'pr-16 text-right' : 'pl-16 text-left order-last'}`}>
-                  <div className="glass rounded-3xl p-10 border border-white/10 hover:border-cyan-500/30 transition-all duration-500 group inline-block max-w-lg">
-                    <div className="flex items-center gap-3 mb-6 justify-start">
-                      <span className="px-5 py-2 rounded-full bg-gradient-to-r from-cyan-500/10 to-purple-500/10 text-cyan-400 text-sm font-semibold border border-cyan-500/20">
-                        {item.phase}
-                      </span>
+                <div className={`w-1/2 flex ${isLeft ? 'justify-end' : 'justify-start'}`}>
+                  {isLeft && (
+                    <div className="glass rounded-3xl p-10 border border-white/10 hover:border-cyan-500/30 transition-all duration-500 max-w-md text-center">
+                      <div className="flex items-center justify-center gap-3 mb-6">
+                        <span className="px-5 py-2 rounded-full bg-gradient-to-r from-cyan-500/10 to-purple-500/10 text-cyan-400 text-sm font-semibold border border-cyan-500/20">
+                          {item.phase}
+                        </span>
+                      </div>
+                      <h3 className="text-2xl font-bold mb-5">{item.title}</h3>
+                      <p className="text-lg text-slate-400 leading-relaxed">{item.desc}</p>
                     </div>
-                    <h3 className="text-3xl font-bold mb-5 group-hover:text-cyan-400 transition-colors">{item.title}</h3>
-                    <p className="text-lg text-slate-400 leading-relaxed">{item.desc}</p>
-                  </div>
+                  )}
                 </div>
 
                 <div className="absolute left-1/2 -translate-x-1/2 z-10">
@@ -274,7 +278,19 @@ function Journey() {
                   </motion.div>
                 </div>
 
-                <div className={`w-1/2 ${isLeft ? 'pl-16 order-last' : 'pr-16 text-right'}`} />
+                <div className={`w-1/2 flex ${isLeft ? 'justify-start' : 'justify-end'}`}>
+                  {!isLeft && (
+                    <div className="glass rounded-3xl p-10 border border-white/10 hover:border-cyan-500/30 transition-all duration-500 max-w-md text-center">
+                      <div className="flex items-center justify-center gap-3 mb-6">
+                        <span className="px-5 py-2 rounded-full bg-gradient-to-r from-cyan-500/10 to-purple-500/10 text-cyan-400 text-sm font-semibold border border-cyan-500/20">
+                          {item.phase}
+                        </span>
+                      </div>
+                      <h3 className="text-2xl font-bold mb-5">{item.title}</h3>
+                      <p className="text-lg text-slate-400 leading-relaxed">{item.desc}</p>
+                    </div>
+                  )}
+                </div>
               </motion.div>
             )
           })}
@@ -286,12 +302,12 @@ function Journey() {
 
 function Team() {
   return (
-    <section id="team" className="py-56 relative">
+    <section id="team" className="py-56 relative w-full flex flex-col items-center">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(34,211,238,0.05)_0%,_transparent_50%)]" />
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="w-full flex flex-col items-center max-w-7xl mx-auto px-6">
         <SectionTitle subtitle="The Elite Team" title="Meet Our Innovators" />
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-10">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-10 w-full justify-items-center">
           {team.map((member, i) => (
             <motion.div
               key={member.name}
@@ -300,7 +316,7 @@ function Team() {
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: i * 0.1 }}
               whileHover={{ y: -15 }}
-              className="glass rounded-3xl p-10 border border-white/10 text-center hover:border-cyan-500/30 transition-all duration-500 flex flex-col"
+              className="glass rounded-3xl p-10 border border-white/10 text-center hover:border-cyan-500/30 transition-all duration-500 flex flex-col items-center max-w-xs"
             >
               <div className="w-32 h-32 mx-auto mb-8 rounded-full overflow-hidden border-2 border-cyan-500/30 shadow-lg shadow-cyan-500/20">
                 <img 
@@ -334,12 +350,12 @@ function Team() {
 
 function TechSpecs() {
   return (
-    <section id="tech" className="py-56 relative">
+    <section id="tech" className="py-56 relative w-full flex flex-col items-center">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_rgba(59,130,246,0.05)_0%,_transparent_50%)]" />
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="w-full flex flex-col items-center max-w-7xl mx-auto px-6">
         <SectionTitle subtitle="Technical Specs" title="Our Technology Stack" />
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 w-full justify-items-center">
           {techSpecs.map((tech, i) => (
             <motion.div
               key={tech.title}
@@ -348,7 +364,7 @@ function TechSpecs() {
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: i * 0.1 }}
               whileHover={{ y: -12 }}
-              className="glass rounded-3xl p-12 border border-white/10 text-center group hover:border-purple-500/30 transition-all duration-500"
+              className="glass rounded-3xl p-12 border border-white/10 text-center group hover:border-purple-500/30 transition-all duration-500 max-w-xs"
             >
               <motion.div
                 whileHover={{ rotate: 360 }}
@@ -368,11 +384,11 @@ function TechSpecs() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-24 text-center"
+          className="mt-24"
         >
-          <div className="inline-flex items-center gap-10 px-16 py-10 glass rounded-3xl border border-white/10">
+          <div className="flex flex-wrap items-center justify-center gap-6 px-16 py-10 glass rounded-3xl border border-white/10">
             <span className="text-xl text-slate-500">Built with</span>
-            <div className="flex items-center gap-5">
+            <div className="flex flex-wrap items-center gap-5 justify-center">
               {['Flutter', 'Firebase', 'Dart', 'GCP'].map((tech) => (
                 <span
                   key={tech}
@@ -391,8 +407,8 @@ function TechSpecs() {
 
 function Footer() {
   return (
-    <footer className="py-28 glass border-t border-white/5">
-      <div className="max-w-7xl mx-auto px-6 text-center">
+    <footer className="py-28 glass border-t border-white/5 w-full flex flex-col items-center">
+      <div className="max-w-7xl mx-auto px-6 text-center w-full">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -427,7 +443,7 @@ function Footer() {
 
 function App() {
   return (
-    <div className="min-h-screen bg-[#030712]">
+    <div className="min-h-screen bg-[#030712] w-full flex flex-col items-center">
       <Navbar />
       <Hero />
       <Journey />
