@@ -134,9 +134,15 @@ function Hero() {
   const y = useTransform(scrollY, [0, 600], [0, 150])
 
   return (
-    <section id="home" className="min-h-screen relative overflow-hidden flex items-center pt-24">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(34,211,238,0.08)_0%,_transparent_50%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_rgba(168,85,247,0.06)_0%,_transparent_50%)]" />
+    <section id="home" className="min-h-screen relative overflow-hidden flex items-center pt-24 pb-0">
+      {/* Glow Effects - shadcn style */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[400px] overflow-hidden pointer-events-none">
+        <div className="absolute left-1/2 -translate-x-1/2 w-[60%] h-[256px] bg-[radial-gradient(ellipse_at_center,rgba(34,211,238,0.5)_10%,transparent_60%)] sm:h-[512px] blur-[100px]" />
+        <div className="absolute left-1/2 -translate-x-1/2 w-[40%] h-[128px] bg-[radial-gradient(ellipse_at_center,rgba(168,85,247,0.3)_10%,transparent_60%)] sm:h-[256px] blur-[80px] mt-20" />
+      </div>
+
+      <div className="absolute inset-0 bg-[radial_gradient(ellipse_at_top,_rgba(34,211,238,0.08)_0%,_transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial_gradient(ellipse_at_bottom_right,_rgba(168,85,247,0.06)_0%,_transparent_50%)]" />
       <div className="absolute top-32 left-0 w-[600px] h-[600px] bg-cyan-500/5 rounded-full blur-[180px]" />
       <div className="absolute bottom-0 right-0 w-[700px] h-[700px] bg-purple-500/5 rounded-full blur-[180px]" />
 
@@ -151,7 +157,7 @@ function Hero() {
             <span className="text-base text-slate-300 font-medium">Jordan Free Zone's Premier Platform</span>
           </motion.div>
 
-          <motion.h1 variants={fadeInUp} className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.05] tracking-tight mb-12">
+          <motion.h1 variants={fadeInUp} className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.05] tracking-tight mb-12 relative">
             <span className="bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
               FreeZone Hub:
             </span>
@@ -174,42 +180,37 @@ function Hero() {
               whileTap={{ scale: 0.95 }}
               className="px-10 py-5 rounded-2xl font-semibold bg-gradient-to-r from-cyan-500 via-purple-500 to-cyan-500 text-white shadow-2xl shadow-cyan-500/20 flex items-center gap-3 text-lg"
             >
-              Explore Platform
+              Get Started
               <ChevronRight className="w-5 h-5" />
             </motion.button>
             <motion.button
-              whileHover={{ scale: 1.05, backgroundColor: 'rgba(255,255,255,0.08)' }}
+              whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(168,85,247,0.3)' }}
               whileTap={{ scale: 0.95 }}
-              className="px-10 py-5 rounded-2xl font-semibold glass text-white flex items-center gap-3 text-lg"
+              className="px-10 py-5 rounded-2xl font-semibold glass border border-white/10 text-white flex items-center gap-3 text-lg hover:bg-white/5"
             >
-              Watch Demo
+              View Demo
             </motion.button>
           </motion.div>
         </motion.div>
 
-        <motion.div style={{ y }} className="hidden lg:block">
+        <motion.div style={{ y }} className="hidden lg:block relative">
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-purple-500/20 rounded-[3rem] blur-3xl" />
-            <div className="relative glass rounded-[3rem] p-12 border border-white/10">
-              <div className="grid grid-cols-2 gap-8">
-                {stats.map((stat, i) => (
-                  <motion.div
-                    key={stat.label}
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.5 + i * 0.1 }}
-                    className="glass rounded-3xl p-8 text-center hover:bg-white/5 transition-all duration-500 group"
-                  >
-                    <stat.icon className="w-10 h-10 mx-auto mb-4 text-cyan-400" />
-                    <div className="text-4xl font-bold text-white mb-2">{stat.num}</div>
-                    <div className="text-base text-slate-500">{stat.label}</div>
-                  </motion.div>
-                ))}
+            <div className="relative glass rounded-[3rem] p-8 border border-white/10">
+              <div className="bg-slate-900/50 rounded-2xl p-6 aspect-video flex items-center justify-center">
+                <div className="text-center">
+                  <Car className="w-20 h-20 mx-auto mb-4 text-cyan-400" />
+                  <p className="text-slate-400 text-lg">App Preview</p>
+                  <p className="text-slate-600 text-sm mt-2">Coming Soon</p>
+                </div>
               </div>
             </div>
           </div>
         </motion.div>
       </div>
+
+      {/* Bottom fade effect */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#030712] to-transparent pointer-events-none" />
     </section>
   )
 }
