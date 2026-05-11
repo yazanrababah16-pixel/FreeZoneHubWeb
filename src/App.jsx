@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { 
   Sparkles, Search, PenTool, Code2, ShieldAlert, Car, ShieldCheck, 
@@ -310,6 +310,118 @@ function SectionTitle({ subtitle, title }) {
       <p className="text-cyan-400 font-medium mb-6 tracking-[0.25em] uppercase text-sm">{subtitle}</p>
       <h2 className="text-5xl md:text-6xl font-bold tracking-tight">{title}</h2>
     </motion.div>
+  )
+}
+
+function AppPreview() {
+  const containerRef = useRef<HTMLDivElement>(null)
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+  })
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768)
+    }
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
+  const scaleDimensions = () => {
+    return isMobile ? [0.7, 0.9] : [1.05, 1]
+  }
+
+  const rotate = useTransform(scrollYProgress, [0, 1], [20, 0])
+  const scale = useTransform(scrollYProgress, [0, 1], scaleDimensions())
+  const translate = useTransform(scrollYProgress, [0, 1], [0, -100])
+
+  return (
+    <section className="py-40 relative w-full flex flex-col items-center overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(124,85,247,0.08)_0%,_transparent_70%)]" />
+      
+      <div className="w-full flex flex-col items-center max-w-7xl mx-auto px-4 md:px-20">
+        <motion.div
+          style={{ translateY: translate }}
+          className="text-center mb-16 w-full"
+        >
+          <p className="text-cyan-400 font-medium mb-6 tracking-[0.25em] uppercase text-sm">App Preview</p>
+          <h1 className="text-4xl md:text-6xl font-bold text-white">
+            Experience the <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">Future</span> of Trading
+          </h1>
+        </motion.div>
+
+        <div
+          className="h-[40rem] md:h-[60rem] flex items-center justify-center relative w-full"
+          ref={containerRef}
+        >
+          <div className="py-10 md:py-40 w-full relative" style={{ perspective: '1000px' }}>
+            <motion.div
+              style={{
+                rotateX: rotate,
+                scale,
+                boxShadow: '0 0 #0000004d, 0 9px 20px #0000004a, 0 37px 37px #00000042, 0 84px 50px #00000026, 0 149px 60px #0000000a, 0 233px 65px #00000003',
+              }}
+              className="max-w-5xl -mt-12 mx-auto h-[25rem] md:h-[40rem] w-full border-4 border-[#6C6C6C] p-2 md:p-6 bg-[#1a1a2e] rounded-[30px] shadow-2xl"
+            >
+              <div className="h-full w-full overflow-hidden rounded-2xl bg-[#030712] md:rounded-2xl p-4 md:p-8">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 h-full">
+                  <div className="col-span-2 md:col-span-4 glass rounded-2xl p-4 md:p-6 flex items-center justify-between border border-white/10">
+                    <div>
+                      <h3 className="text-white text-lg md:text-2xl font-bold">FreeZone Hub</h3>
+                      <p className="text-slate-400 text-sm">Smart Car Trading</p>
+                    </div>
+                    <div className="w-10 h-10 md:w-14 md:h-14 rounded-full bg-gradient-to-br from-cyan-400 to-purple-500 flex items-center justify-center">
+                      <Sparkles className="w-5 h-6 md:w-7 md:h-7 text-white" />
+                    </div>
+                  </div>
+                  <div className="glass rounded-2xl p-4 md:p-6 border border-white/10 flex flex-col items-center justify-center">
+                    <Car className="w-8 h-8 md:w-12 md:h-12 text-cyan-400 mb-2" />
+                    <span className="text-white font-bold text-lg md:text-2xl">500+</span>
+                    <span className="text-slate-400 text-xs md:text-sm">Vehicles</span>
+                  </div>
+                  <div className="glass rounded-2xl p-4 md:p-6 border border-white/10 flex flex-col items-center justify-center">
+                    <ShieldCheck className="w-8 h-8 md:w-12 md:h-12 text-green-400 mb-2" />
+                    <span className="text-white font-bold text-lg md:text-2xl">100%</span>
+                    <span className="text-slate-400 text-xs md:text-sm">Verified</span>
+                  </div>
+                  <div className="glass rounded-2xl p-4 md:p-6 border border-white/10 flex flex-col items-center justify-center">
+                    <Users className="w-8 h-8 md:w-12 md:h-12 text-purple-400 mb-2" />
+                    <span className="text-white font-bold text-lg md:text-2xl">2K+</span>
+                    <span className="text-slate-400 text-xs md:text-sm">Users</span>
+                  </div>
+                  <div className="glass rounded-2xl p-4 md:p-6 border border-white/10 flex flex-col items-center justify-center">
+                    <Star className="w-8 h-8 md:w-12 md:h-12 text-amber-400 mb-2" />
+                    <span className="text-white font-bold text-lg md:text-2xl">4.9</span>
+                    <span className="text-slate-400 text-xs md:text-sm">Rating</span>
+                  </div>
+                  <div className="col-span-2 md:col-span-4 glass rounded-2xl p-4 md:p-6 border border-white/10">
+                    <h4 className="text-white font-semibold mb-3 text-sm md:text-lg">Recent Listings</h4>
+                    <div className="space-y-2">
+                      <div className="flex items-center gap-3 p-2 rounded-xl bg-white/5">
+                        <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-gradient-to-br from-slate-700 to-slate-800" />
+                        <div className="flex-1">
+                          <p className="text-white text-xs md:text-sm font-medium">Toyota Camry 2023</p>
+                          <p className="text-cyan-400 text-xs">JD 32,000</p>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-3 p-2 rounded-xl bg-white/5">
+                        <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-gradient-to-br from-slate-700 to-slate-800" />
+                        <div className="flex-1">
+                          <p className="text-white text-xs md:text-sm font-medium">Honda Accord 2022</p>
+                          <p className="text-cyan-400 text-xs">JD 28,500</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </div>
+    </section>
   )
 }
 
@@ -752,9 +864,11 @@ function App() {
     <div className="min-h-screen bg-[#030712] w-full flex flex-col items-center">
       <Navbar />
       <Hero />
+      <AppPreview />
       <Journey />
       <FeatureSection />
       <Team />
+      <AboutSection />
       <TechSpecs />
       <Footer />
     </div>
