@@ -4,8 +4,17 @@ import {
   Sparkles, Search, PenTool, Code2, ShieldAlert, Car, ShieldCheck, 
   Users, Star, ChevronRight, MessageCircle, Menu, X,
   Shield, DollarSign, Gauge, ClipboardCheck, Smartphone, Lock,
-  TrendingUp, HeadphonesIcon
+  TrendingUp, HeadphonesIcon, Building2, Award, Globe, ArrowUpRight,
+  ChevronLeft, ArrowRight
 } from 'lucide-react'
+
+const teamGalleryItems = [
+  { id: '1', title: 'Yazan Ali Ahmad Banikhair', role: 'Lead Developer & Testing', image: '/team-yazan.jpg', wa: 'https://wa.me/962777356430' },
+  { id: '2', title: 'Ahmad Natour', role: 'UI/UX Designer', image: '/team-ahmad-natour.jpg', wa: 'https://wa.me/962793830307' },
+  { id: '3', title: 'Ahmad Sadiq', role: 'Backend Developer', image: '/team-ahmad-sadiq.jpg', wa: 'https://wa.me/962798062360' },
+  { id: '4', title: 'Tareq Jarrar', role: 'UI/UX Designer', image: '/team-tareq.jpg', wa: 'https://wa.me/962788602694' },
+  { id: '5', title: 'Adel Abu Hajar', role: 'Backend Developer', image: '/team-adel.jpg', wa: 'https://wa.me/96279601436' },
+]
 
 const featureCategories = [
   {
@@ -446,48 +455,200 @@ function FeatureSection() {
 }
 
 function Team() {
+  const [activeIndex, setActiveIndex] = useState(0)
+  
+  const scrollLeft = () => {
+    setActiveIndex((prev) => (prev === 0 ? teamGalleryItems.length - 1 : prev - 1))
+  }
+  
+  const scrollRight = () => {
+    setActiveIndex((prev) => (prev === teamGalleryItems.length - 1 ? 0 : prev + 1))
+  }
+
   return (
     <section id="team" className="py-56 relative w-full flex flex-col items-center">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(34,211,238,0.05)_0%,_transparent_50%)]" />
+      
       <div className="w-full flex flex-col items-center max-w-7xl mx-auto px-6">
-        <SectionTitle subtitle="The Elite Team" title="Meet Our Innovators" />
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16 w-full"
+        >
+          <p className="text-cyan-400 font-medium mb-6 tracking-[0.25em] uppercase text-sm">Meet the Team</p>
+          <h2 className="text-5xl md:text-6xl font-bold tracking-tight mb-6">
+            Our <span className="text-pink-400">Innovators</span>
+          </h2>
+          <p className="text-xl text-slate-400 max-w-2xl mx-auto">
+            Explore our collection of talented individuals dedicated to transforming car trading in Jordan.
+          </p>
+        </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-10 w-full justify-items-center">
-          {team.map((member, i) => (
-            <motion.div
-              key={member.name}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: i * 0.1 }}
-              whileHover={{ y: -15 }}
-              className="glass rounded-3xl p-10 border border-white/10 text-center hover:border-cyan-500/30 transition-all duration-500 flex flex-col items-center max-w-xs"
-            >
-              <div className="w-32 h-32 mx-auto mb-8 rounded-full overflow-hidden border-2 border-cyan-500/30 shadow-lg shadow-cyan-500/20">
-                <img 
-                  src={member.image} 
-                  alt={member.name}
-                  className="w-full h-full object-cover"
-                />
+        <div className="mb-8 flex justify-end gap-2 w-full max-w-6xl">
+          <button
+            onClick={scrollLeft}
+            className="h-12 w-12 rounded-full glass border border-white/10 flex items-center justify-center hover:bg-white/10 transition-all"
+          >
+            <ChevronLeft className="w-5 h-5 text-white" />
+          </button>
+          <button
+            onClick={scrollRight}
+            className="h-12 w-12 rounded-full glass border border-white/10 flex items-center justify-center hover:bg-white/10 transition-all"
+          >
+            <ChevronRight className="w-5 h-5 text-white" />
+          </button>
+        </div>
+
+        <div className="w-full max-w-full overflow-hidden">
+          <motion.div 
+            className="flex gap-6 justify-center"
+            animate={{ x: -activeIndex * 320 }}
+            transition={{ type: 'spring', stiffness: 100, damping: 20 }}
+          >
+            {teamGalleryItems.map((item, i) => (
+              <div key={item.id} className="min-w-[300px] md:min-w-[350px]">
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: i * 0.1 }}
+                  className="group relative w-full h-[350px] md:h-[400px]"
+                >
+                  <div className="rounded-3xl overflow-hidden h-full w-full border border-white/10">
+                    <div className="relative h-full w-full transition-all duration-500 group-hover:h-1/2">
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        className="h-full w-full object-cover object-center"
+                      />
+                      <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    </div>
+
+                    <div className="absolute bottom-0 left-0 w-full px-6 py-4 transition-all duration-500 group-hover:h-1/2 group-hover:flex flex-col justify-center bg-slate-900/95 backdrop-blur-sm opacity-0 group-hover:opacity-100">
+                      <h3 className="text-xl font-bold text-white mb-1">{item.title}</h3>
+                      <p className="text-slate-400 text-sm mb-3">{item.role}</p>
+                      <motion.a
+                        href={item.wa}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-green-500 to-emerald-600 text-white text-sm font-semibold w-fit"
+                      >
+                        <MessageCircle className="w-4 h-4" />
+                        Chat with us
+                      </motion.a>
+                    </div>
+                  </div>
+                </motion.div>
               </div>
-              
-              <h3 className="text-xl font-bold mb-3 text-white">{member.name}</h3>
-              <p className="text-base text-slate-500 mb-8 flex-grow">{member.role}</p>
-              
-              <motion.a
-                href={member.wa}
-                target="_blank"
-                rel="noopener noreferrer"
+            ))}
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function AboutSection() {
+  return (
+    <section id="about" className="py-56 relative w-full flex flex-col items-center">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(34,211,238,0.05)_0%,_transparent_70%)]" />
+      
+      <div className="w-full flex flex-col items-center max-w-7xl mx-auto px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="mb-16 text-center w-full"
+        >
+          <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-6">About Us</h1>
+          <p className="text-xl text-slate-400 max-w-2xl mx-auto">
+            FreeZone Hub is a passionate team dedicated to creating innovative solutions that empower car traders and buyers in Jordan's free zone market.
+          </p>
+        </motion.div>
+
+        <div className="grid gap-8 lg:grid-cols-3 w-full mb-20">
+          <div className="lg:col-span-2">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="w-full h-[400px] lg:h-[500px] rounded-3xl overflow-hidden border border-white/10"
+            >
+              <img 
+                src="/team-yazan.jpg" 
+                alt="FreeZone Hub Team" 
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
+          </div>
+          <div className="flex flex-col gap-8">
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="flex-1 glass rounded-3xl p-8 border border-white/10"
+            >
+              <Globe className="w-12 h-12 text-cyan-400 mb-4" />
+              <p className="text-lg font-semibold mb-2">Hundreds of Features at FreeZoneHub.com</p>
+              <p className="text-slate-400 mb-6">Providing traders with effective tools to improve workflows, boost efficiency, and encourage growth in the Jordan automotive market.</p>
+              <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center justify-center gap-3 px-6 py-3.5 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 text-white font-semibold shadow-xl shadow-green-500/20 hover:shadow-green-500/40 transition-all"
+                className="px-5 py-2.5 rounded-xl font-semibold glass border border-white/10 text-white flex items-center gap-2 text-sm hover:bg-white/10"
               >
-                <MessageCircle className="w-5 h-5" />
-                Chat with us
-              </motion.a>
+                Discover more <ArrowUpRight className="w-4 h-4" />
+              </motion.button>
             </motion.div>
-          ))}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="flex-1 rounded-3xl overflow-hidden border border-white/10"
+            >
+              <img 
+                src="/team-adel.jpg" 
+                alt="Office" 
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
+          </div>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="w-full relative overflow-hidden glass rounded-3xl border border-white/10 p-10 md:p-16"
+        >
+          <div className="flex flex-col gap-4 text-center md:text-left mb-12">
+            <h2 className="text-4xl font-bold">Our Achievements in Numbers</h2>
+            <p className="max-w-screen-sm text-slate-400">
+              Providing businesses with effective tools to improve workflows, boost efficiency, and encourage growth.
+            </p>
+          </div>
+          <div className="flex flex-wrap justify-center md:justify-between gap-10 text-center">
+            {[
+              { label: "Companies Supported", value: "300+" },
+              { label: "Vehicles Listed", value: "800+" },
+              { label: "Happy Customers", value: "99%" },
+              { label: "Awards Won", value: "10+" },
+            ].map((item, idx) => (
+              <div key={idx} className="flex flex-col gap-2">
+                <p className="text-slate-500 text-sm">{item.label}</p>
+                <span className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+                  {item.value}
+                </span>
+              </div>
+            ))}
+          </div>
+          <div className="pointer-events-none absolute -top-1 right-1 z-10 hidden h-full w-full bg-[linear-gradient(to_right,rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:80px_80px] opacity-15 [mask-image:linear-gradient(to_bottom_right,#000,transparent,transparent)] md:block" />
+        </motion.div>
       </div>
     </section>
   )
