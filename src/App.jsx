@@ -299,7 +299,7 @@ function SectionTitle({ subtitle, title }) {
 }
 
 function AppPreview() {
-  const containerRef = useRef<HTMLDivElement>(null)
+  const containerRef = useRef(null)
   const { scrollYProgress } = useScroll({
     target: containerRef,
   })
