@@ -9,11 +9,11 @@ import {
 } from 'lucide-react'
 
 const teamGalleryItems = [
-  { id: '1', title: 'Yazan Ali Ahmad Banikhair', role: 'Lead Developer & Testing', image: '/team-yazan.jpg', wa: 'https://wa.me/962777356430' },
-  { id: '2', title: 'Ahmad Natour', role: 'UI/UX Designer', image: '/team-ahmad-natour.jpg', wa: 'https://wa.me/962793830307' },
-  { id: '3', title: 'Ahmad Sadiq', role: 'Backend Developer', image: '/team-ahmad-sadiq.jpg', wa: 'https://wa.me/962798062360' },
-  { id: '4', title: 'Tareq Jarrar', role: 'UI/UX Designer', image: '/team-tareq.jpg', wa: 'https://wa.me/962788602694' },
-  { id: '5', title: 'Adel Abu Hajar', role: 'Backend Developer', image: '/team-adel.jpg', wa: 'https://wa.me/96279601436' },
+  { id: '1', title: 'Yazan Ali Ahmad Banikhair', role: 'Lead Developer & Testing', image: '/team/Yazan.jpg', wa: 'https://wa.me/962777356430' },
+  { id: '2', title: 'Ahmad Natour', role: 'UI/UX Designer', image: '/team/Ahmad nator.jpg', wa: 'https://wa.me/962793830307' },
+  { id: '3', title: 'Ahmad Sadiq', role: 'Backend Developer', image: '/team/Ahmad sadeq.jpg', wa: 'https://wa.me/962798062360' },
+  { id: '4', title: 'Tareq Jarrar', role: 'UI/UX Designer', image: '/team/Tareq.jpg', wa: 'https://wa.me/962788602694' },
+  { id: '5', title: 'Adel Abu Hajar', role: 'Backend Developer', image: '/team/Adel.jpg', wa: 'https://wa.me/96279601436' },
 ]
 
 const featureCategories = [
@@ -577,7 +577,7 @@ function Team() {
         </motion.div>
 
         <div className="w-full max-w-full overflow-visible">
-          <div className="flex gap-6 justify-center overflow-x-auto pb-4 scrollbar-hide" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+          <div className="flex gap-6 justify-start md:justify-center overflow-x-auto pb-4 px-4 md:px-0" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none', scrollBehavior: 'smooth' }}>
             {teamGalleryItems.map((item, i) => (
               <motion.div
                 key={item.id}
@@ -586,7 +586,7 @@ function Team() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
                 whileHover={{ y: -10 }}
-                className="group flex-shrink-0 w-[280px] md:w-[320px] h-[380px] md:h-[420px] cursor-pointer"
+                className="group flex-shrink-0 w-[260px] md:w-[300px] h-[360px] md:h-[400px] cursor-pointer"
               >
                 <div className="rounded-3xl overflow-hidden h-full w-full border border-white/10 bg-slate-900/50">
                   <div className="relative h-[60%] w-full overflow-hidden">
