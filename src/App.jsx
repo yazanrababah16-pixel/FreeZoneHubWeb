@@ -5,7 +5,7 @@ import {
   Users, Star, ChevronRight, MessageCircle, Menu, X,
   Shield, DollarSign, ClipboardCheck, Smartphone, Lock,
   TrendingUp, Globe, ArrowUpRight,
-  ChevronLeft
+  ChevronLeft, ArrowRight
 } from 'lucide-react'
 
 const teamGalleryItems = [
@@ -555,6 +555,18 @@ function FeatureSection() {
 }
 
 function Team() {
+  const scrollRef = useRef(null)
+  
+  const scroll = (direction) => {
+    if (scrollRef.current) {
+      const scrollAmount = 320
+      scrollRef.current.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth'
+      })
+    }
+  }
+
   return (
     <section id="team" className="py-56 relative w-full flex flex-col items-center">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(34,211,238,0.05)_0%,_transparent_50%)]" />
@@ -576,8 +588,19 @@ function Team() {
           </p>
         </motion.div>
 
-        <div className="w-full max-w-full overflow-visible">
-          <div className="flex gap-6 justify-start md:justify-center overflow-x-auto pb-4 px-4 md:px-0" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none', scrollBehavior: 'smooth' }}>
+        <div className="relative w-full">
+          <button
+            onClick={() => scroll('left')}
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 h-12 w-12 rounded-full glass border border-white/10 flex items-center justify-center hover:bg-white/20 transition-all"
+          >
+            <ChevronLeft className="w-6 h-6 text-white" />
+          </button>
+          
+          <div 
+            ref={scrollRef}
+            className="flex gap-6 overflow-x-auto py-4 px-12 scrollbar-hide"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
             {teamGalleryItems.map((item, i) => (
               <motion.div
                 key={item.id}
@@ -586,17 +609,17 @@ function Team() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
                 whileHover={{ y: -10 }}
-                className="group flex-shrink-0 w-[260px] md:w-[300px] h-[360px] md:h-[400px] cursor-pointer"
+                className="group flex-shrink-0 w-[280px] md:w-[320px] h-[400px] md:h-[450px] cursor-pointer"
               >
                 <div className="rounded-3xl overflow-hidden h-full w-full border border-white/10 bg-slate-900/50">
-                  <div className="relative h-[60%] w-full overflow-hidden">
+                  <div className="relative h-[65%] w-full overflow-hidden">
                     <img
                       src={item.image}
                       alt={item.title}
                       className="h-full w-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
                   </div>
-                  <div className="p-6 flex flex-col items-center text-center h-[40%] justify-center">
+                  <div className="p-6 flex flex-col items-center text-center h-[35%] justify-center">
                     <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
                     <p className="text-cyan-400 text-sm mb-4">{item.role}</p>
                     <motion.a
@@ -615,6 +638,13 @@ function Team() {
               </motion.div>
             ))}
           </div>
+          
+          <button
+            onClick={() => scroll('right')}
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 h-12 w-12 rounded-full glass border border-white/10 flex items-center justify-center hover:bg-white/20 transition-all"
+          >
+            <ChevronRight className="w-6 h-6 text-white" />
+          </button>
         </div>
       </div>
     </section>
