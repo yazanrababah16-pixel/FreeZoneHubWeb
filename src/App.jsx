@@ -9,11 +9,11 @@ import {
 } from 'lucide-react'
 
 const teamGalleryItems = [
-  { id: '1', title: 'Yazan Ali Ahmad Banikhair', role: 'Lead Developer & Testing', image: '/team/Yazan.jpg', wa: 'https://wa.me/962777356430' },
-  { id: '2', title: 'Ahmad Natour', role: 'UI/UX Designer', image: '/team/Ahmad nator.jpg', wa: 'https://wa.me/962793830307' },
-  { id: '3', title: 'Ahmad Sadiq', role: 'Backend Developer', image: '/team/Ahmad sadeq.jpg', wa: 'https://wa.me/962798062360' },
-  { id: '4', title: 'Tareq Jarrar', role: 'UI/UX Designer', image: '/team/Tareq.jpg', wa: 'https://wa.me/962788602694' },
-  { id: '5', title: 'Adel Abu Hajar', role: 'Backend Developer', image: '/team/Adel.jpg', wa: 'https://wa.me/96279601436' },
+  { id: '1', title: 'Yazan Ali Ahmad Banikhair', role: 'Lead Developer & Testing', image: '/FreeZoneHubWeb/team/Yazan.jpg', wa: 'https://wa.me/962777356430' },
+  { id: '2', title: 'Ahmad Natour', role: 'UI/UX Designer', image: '/FreeZoneHubWeb/team/Ahmad nator.jpg', wa: 'https://wa.me/962793830307' },
+  { id: '3', title: 'Ahmad Sadiq', role: 'Backend Developer', image: '/FreeZoneHubWeb/team/Ahmad sadeq.jpg', wa: 'https://wa.me/962798062360' },
+  { id: '4', title: 'Tareq Jarrar', role: 'UI/UX Designer', image: '/FreeZoneHubWeb/team/Tareq.jpg', wa: 'https://wa.me/962788602694' },
+  { id: '5', title: 'Adel Abu Hajar', role: 'Backend Developer', image: '/FreeZoneHubWeb/team/Adel.jpg', wa: 'https://wa.me/96279601436' },
 ]
 
 const featureCategories = [
@@ -598,8 +598,8 @@ function Team() {
           
           <div 
             ref={scrollRef}
-            className="flex gap-6 overflow-x-auto py-4 px-12 scrollbar-hide"
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            className="flex gap-6 overflow-x-auto py-4 px-12"
+            style={{ overflowX: 'auto', whiteSpace: 'nowrap', scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {teamGalleryItems.map((item, i) => (
               <motion.div
