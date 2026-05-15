@@ -5,15 +5,15 @@ import {
   Users, Star, ChevronRight, MessageCircle, Menu, X,
   Shield, DollarSign, ClipboardCheck, Smartphone, Lock,
   TrendingUp, Globe, ArrowUpRight,
-  ChevronLeft, ArrowRight
+  ChevronLeft, ArrowRight, Link
 } from 'lucide-react'
 
 const teamGalleryItems = [
-  { id: '1', title: 'Yazan BaniKhair', role: 'Lead Developer & Testing', image: '/FreeZoneHubWeb/team/Yazan.jpeg?v=2', wa: 'https://wa.me/962777356430' },
-  { id: '2', title: 'Ahmad Natour', role: 'UI/UX Designer', image: '/FreeZoneHubWeb/team/Ahmad nator.jpg', wa: 'https://wa.me/962793830307' },
-  { id: '3', title: 'Ahmad Sadiq', role: 'Team Leader & Backend Developer', image: '/FreeZoneHubWeb/team/Ahmad sadeq.jpg', wa: 'https://wa.me/962798062360' },
-  { id: '4', title: 'Tareq Jarrar', role: 'UI/UX Designer', image: '/FreeZoneHubWeb/team/Tareq.jpg', wa: 'https://wa.me/962788602694' },
-  { id: '5', title: 'Adel Abu Hajar', role: 'Backend Developer', image: '/FreeZoneHubWeb/team/Adel.jpg', wa: 'https://wa.me/96279601436' },
+  { id: '1', title: 'Yazan BaniKhair', role: 'Lead Developer & Testing', image: '/FreeZoneHubWeb/team/Yazan.jpg?v=2', wa: 'https://wa.me/962777356430', linkedin: 'https://www.linkedin.com/in/yazan-rababah-106351245/' },
+  { id: '2', title: 'Ahmad Natour', role: 'UI/UX Designer', image: '/FreeZoneHubWeb/team/Ahmad nator.jpg', wa: 'https://wa.me/962793830307', linkedin: 'https://www.linkedin.com/in/ahmad-alnatour-553183362/' },
+  { id: '3', title: 'Ahmad Sadiq', role: 'Team Leader & Backend Developer', image: '/FreeZoneHubWeb/team/Ahmad sadeq.jpg', wa: 'https://wa.me/962798062360', linkedin: 'https://www.linkedin.com/in/ahmad-mansour-781217337/' },
+  { id: '4', title: 'Tareq Jarrar', role: 'UI/UX Designer', image: '/FreeZoneHubWeb/team/Tareq.jpg', wa: 'https://wa.me/962788602694', linkedin: null },
+  { id: '5', title: 'Adel Abu Hajar', role: 'Backend Developer', image: '/FreeZoneHubWeb/team/Adel.jpg', wa: 'https://wa.me/96279601436', linkedin: 'https://www.linkedin.com/in/adel-abu-hajar-03a4a81a9/' },
 ]
 
 const featureCategories = [
@@ -598,8 +598,8 @@ function Team() {
           
           <div 
             ref={scrollRef}
-            className="flex gap-6 overflow-x-auto py-4 px-12"
-            style={{ overflowX: 'auto', whiteSpace: 'nowrap', scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            className="flex gap-8 overflow-x-auto py-4 px-4 justify-center"
+            style={{ overflowX: 'auto', whiteSpace: 'nowrap', scrollbarWidth: 'none', msOverflowStyle: 'none', minWidth: '100%' }}
           >
             {teamGalleryItems.map((item, i) => (
               <motion.div
@@ -609,7 +609,7 @@ function Team() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
                 whileHover={{ y: -10 }}
-                className="group flex-shrink-0 w-[280px] md:w-[320px] h-[400px] md:h-[450px] cursor-pointer"
+                className="group flex-shrink-0 w-[260px] md:w-[280px] h-[400px] md:h-[440px] cursor-pointer"
               >
                 <div className="rounded-3xl overflow-hidden h-full w-full border border-white/10 bg-slate-900/50">
                   <div className="relative h-[65%] w-full overflow-hidden">
@@ -622,17 +622,32 @@ function Team() {
                   <div className="p-6 flex flex-col items-center text-center h-[35%] justify-center">
                     <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
                     <p className="text-cyan-400 text-sm mb-4">{item.role}</p>
-                    <motion.a
-                      href={item.wa}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-green-500 to-emerald-600 text-white text-sm font-semibold"
-                    >
-                      <MessageCircle className="w-4 h-4" />
-                      Contact
-                    </motion.a>
+                    <div className="flex gap-3">
+                      <motion.a
+                        href={item.wa}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-green-500 to-emerald-600 text-white text-sm font-semibold"
+                      >
+                        <MessageCircle className="w-4 h-4" />
+                        WhatsApp
+                      </motion.a>
+                      {item.linkedin && (
+                        <motion.a
+                          href={item.linkedin}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-blue-500 to-blue-700 text-white text-sm font-semibold"
+                        >
+                          <Link className="w-4 h-4" />
+                          LinkedIn
+                        </motion.a>
+                      )}
+                    </div>
                   </div>
                 </div>
               </motion.div>
