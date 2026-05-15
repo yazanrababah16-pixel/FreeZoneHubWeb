@@ -9,7 +9,7 @@ import {
 } from 'lucide-react'
 
 const teamGalleryItems = [
-  { id: '1', title: 'Yazan BaniKhair', role: 'Lead Developer & Testing', image: '/FreeZoneHubWeb/team/Yazan.jpg?v=2', wa: 'https://wa.me/962777356430' },
+  { id: '1', title: 'Yazan BaniKhair', role: 'Lead Developer & Testing', image: '/FreeZoneHubWeb/team/Yazan.jpeg?v=2', wa: 'https://wa.me/962777356430' },
   { id: '2', title: 'Ahmad Natour', role: 'UI/UX Designer', image: '/FreeZoneHubWeb/team/Ahmad nator.jpg', wa: 'https://wa.me/962793830307' },
   { id: '3', title: 'Ahmad Sadiq', role: 'Team Leader & Backend Developer', image: '/FreeZoneHubWeb/team/Ahmad sadeq.jpg', wa: 'https://wa.me/962798062360' },
   { id: '4', title: 'Tareq Jarrar', role: 'UI/UX Designer', image: '/FreeZoneHubWeb/team/Tareq.jpg', wa: 'https://wa.me/962788602694' },
