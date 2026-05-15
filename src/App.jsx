@@ -243,21 +243,23 @@ function Hero() {
             </motion.p>
 
             <motion.div variants={fadeInUp} className="flex flex-wrap gap-6 justify-center">
-              <motion.button
+              <motion.a
+                href="#journey"
                 whileHover={{ scale: 1.05, boxShadow: '0 0 60px rgba(34,211,238,0.4)' }}
                 whileTap={{ scale: 0.95 }}
-                className="px-10 py-5 rounded-2xl font-semibold bg-gradient-to-r from-cyan-500 via-purple-500 to-cyan-500 text-white shadow-2xl shadow-cyan-500/20 flex items-center gap-3 text-lg"
+                className="px-10 py-5 rounded-2xl font-semibold bg-gradient-to-r from-cyan-500 via-purple-500 to-cyan-500 text-white shadow-2xl shadow-cyan-500/20 flex items-center gap-3 text-lg cursor-pointer"
               >
                 Get Started
                 <ChevronRight className="w-5 h-5" />
-              </motion.button>
-              <motion.button
+              </motion.a>
+              <motion.a
+                href="#features"
                 whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(168,85,247,0.3)' }}
                 whileTap={{ scale: 0.95 }}
-                className="px-10 py-5 rounded-2xl font-semibold glass border border-white/10 text-white flex items-center gap-3 text-lg hover:bg-white/5"
+                className="px-10 py-5 rounded-2xl font-semibold glass border border-white/10 text-white flex items-center gap-3 text-lg hover:bg-white/5 cursor-pointer"
               >
                 View Demo
-              </motion.button>
+              </motion.a>
             </motion.div>
           </motion.div>
 
@@ -536,14 +538,15 @@ function FeatureSection() {
             transition={{ delay: 0.5, duration: 0.5 }}
             className="mt-16 flex justify-center"
           >
-            <motion.button
+            <motion.a
+              href="#team"
               whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(34,211,238,0.4)' }}
               whileTap={{ scale: 0.95 }}
-              className="px-10 py-5 rounded-2xl font-semibold bg-gradient-to-r from-cyan-500 via-purple-500 to-cyan-500 text-white shadow-2xl shadow-cyan-500/20 flex items-center gap-3 text-lg"
+              className="px-10 py-5 rounded-2xl font-semibold bg-gradient-to-r from-cyan-500 via-purple-500 to-cyan-500 text-white shadow-2xl shadow-cyan-500/20 flex items-center gap-3 text-lg cursor-pointer"
             >
               Explore All Features
               <ChevronRight className="w-5 h-5" />
-            </motion.button>
+            </motion.a>
           </motion.div>
         </motion.div>
       </div>
@@ -552,16 +555,6 @@ function FeatureSection() {
 }
 
 function Team() {
-  const [activeIndex, setActiveIndex] = useState(0)
-  
-  const scrollLeft = () => {
-    setActiveIndex((prev) => (prev === 0 ? teamGalleryItems.length - 1 : prev - 1))
-  }
-  
-  const scrollRight = () => {
-    setActiveIndex((prev) => (prev === teamGalleryItems.length - 1 ? 0 : prev + 1))
-  }
-
   return (
     <section id="team" className="py-56 relative w-full flex flex-col items-center">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(34,211,238,0.05)_0%,_transparent_50%)]" />
@@ -583,66 +576,45 @@ function Team() {
           </p>
         </motion.div>
 
-        <div className="mb-8 flex justify-end gap-2 w-full max-w-6xl">
-          <button
-            onClick={scrollLeft}
-            className="h-12 w-12 rounded-full glass border border-white/10 flex items-center justify-center hover:bg-white/10 transition-all"
-          >
-            <ChevronLeft className="w-5 h-5 text-white" />
-          </button>
-          <button
-            onClick={scrollRight}
-            className="h-12 w-12 rounded-full glass border border-white/10 flex items-center justify-center hover:bg-white/10 transition-all"
-          >
-            <ChevronRight className="w-5 h-5 text-white" />
-          </button>
-        </div>
-
-        <div className="w-full max-w-full overflow-hidden">
-          <motion.div 
-            className="flex gap-6 justify-center"
-            animate={{ x: -activeIndex * 320 }}
-            transition={{ type: 'spring', stiffness: 100, damping: 20 }}
-          >
+        <div className="w-full max-w-full overflow-visible">
+          <div className="flex gap-6 justify-center overflow-x-auto pb-4 scrollbar-hide" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
             {teamGalleryItems.map((item, i) => (
-              <div key={item.id} className="min-w-[300px] md:min-w-[350px]">
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: i * 0.1 }}
-                  className="group relative w-full h-[350px] md:h-[400px]"
-                >
-                  <div className="rounded-3xl overflow-hidden h-full w-full border border-white/10">
-                    <div className="relative h-full w-full transition-all duration-500 group-hover:h-1/2">
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        className="h-full w-full object-cover object-center"
-                      />
-                      <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    </div>
-
-                    <div className="absolute bottom-0 left-0 w-full px-6 py-4 transition-all duration-500 group-hover:h-1/2 group-hover:flex flex-col justify-center bg-slate-900/95 backdrop-blur-sm opacity-0 group-hover:opacity-100">
-                      <h3 className="text-xl font-bold text-white mb-1">{item.title}</h3>
-                      <p className="text-slate-400 text-sm mb-3">{item.role}</p>
-                      <motion.a
-                        href={item.wa}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-green-500 to-emerald-600 text-white text-sm font-semibold w-fit"
-                      >
-                        <MessageCircle className="w-4 h-4" />
-                        Chat with us
-                      </motion.a>
-                    </div>
+              <motion.div
+                key={item.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                whileHover={{ y: -10 }}
+                className="group flex-shrink-0 w-[280px] md:w-[320px] h-[380px] md:h-[420px] cursor-pointer"
+              >
+                <div className="rounded-3xl overflow-hidden h-full w-full border border-white/10 bg-slate-900/50">
+                  <div className="relative h-[60%] w-full overflow-hidden">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="h-full w-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
                   </div>
-                </motion.div>
-              </div>
+                  <div className="p-6 flex flex-col items-center text-center h-[40%] justify-center">
+                    <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
+                    <p className="text-cyan-400 text-sm mb-4">{item.role}</p>
+                    <motion.a
+                      href={item.wa}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-green-500 to-emerald-600 text-white text-sm font-semibold"
+                    >
+                      <MessageCircle className="w-4 h-4" />
+                      Contact
+                    </motion.a>
+                  </div>
+                </div>
+              </motion.div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
@@ -677,7 +649,7 @@ function AboutSection() {
               className="w-full h-[400px] lg:h-[500px] rounded-3xl overflow-hidden border border-white/10"
             >
               <img 
-                src="/team-yazan.jpg" 
+                src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=80" 
                 alt="FreeZone Hub Team" 
                 className="w-full h-full object-cover"
               />
@@ -691,15 +663,8 @@ function AboutSection() {
               className="flex-1 glass rounded-3xl p-8 border border-white/10"
             >
               <Globe className="w-12 h-12 text-cyan-400 mb-4" />
-              <p className="text-lg font-semibold mb-2">Hundreds of Features at FreeZoneHub.com</p>
-              <p className="text-slate-400 mb-6">Providing traders with effective tools to improve workflows, boost efficiency, and encourage growth in the Jordan automotive market.</p>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-5 py-2.5 rounded-xl font-semibold glass border border-white/10 text-white flex items-center gap-2 text-sm hover:bg-white/10"
-              >
-                Discover more <ArrowUpRight className="w-4 h-4" />
-              </motion.button>
+              <p className="text-lg font-semibold mb-2">Innovating Car Trading</p>
+              <p className="text-slate-400 mb-6">Building cutting-edge solutions that transform the automotive marketplace in Jordan with technology.</p>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -709,8 +674,8 @@ function AboutSection() {
               className="flex-1 rounded-3xl overflow-hidden border border-white/10"
             >
               <img 
-                src="/team-adel.jpg" 
-                alt="Office" 
+                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80" 
+                alt="Team Collaboration" 
                 className="w-full h-full object-cover"
               />
             </motion.div>
@@ -823,19 +788,7 @@ function Footer() {
           </div>
           <span className="text-3xl font-bold tracking-tight">FreeZone Hub</span>
         </motion.div>
-        <p className="text-xl text-slate-500 mb-12">Transforming automotive trading in Jordan</p>
-        <div className="flex justify-center gap-12 mb-12">
-          {['GitHub', 'LinkedIn', 'Twitter', 'Instagram'].map((social) => (
-            <motion.a
-              key={social}
-              href="#"
-              whileHover={{ y: -5, color: '#22d3ee' }}
-              className="text-lg text-slate-500 transition-colors hover:text-cyan-400"
-            >
-              {social}
-            </motion.a>
-          ))}
-        </div>
+        <p className="text-xl text-slate-500 mb-8">Transforming automotive trading in Jordan</p>
         <div className="text-slate-600 text-base">
           © 2026 FreeZone Hub. All rights reserved.
         </div>
