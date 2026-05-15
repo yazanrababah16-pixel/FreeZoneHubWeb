@@ -591,15 +591,15 @@ function Team() {
         <div className="relative w-full">
           <button
             onClick={() => scroll('left')}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 h-12 w-12 rounded-full glass border border-white/10 flex items-center justify-center hover:bg-white/20 transition-all"
+            className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-10 h-12 w-12 rounded-full glass border border-white/10 flex items-center justify-center hover:bg-white/20 transition-all"
           >
             <ChevronLeft className="w-6 h-6 text-white" />
           </button>
           
           <div 
             ref={scrollRef}
-            className="flex gap-8 overflow-x-auto py-4 px-4 justify-center"
-            style={{ overflowX: 'auto', whiteSpace: 'nowrap', scrollbarWidth: 'none', msOverflowStyle: 'none', minWidth: '100%' }}
+            className="flex gap-6 md:gap-8 overflow-x-auto py-4 px-16 md:px-20"
+            style={{ scrollSnapType: 'x mandatory', overflowX: 'scroll', scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {teamGalleryItems.map((item, i) => (
               <motion.div
@@ -609,7 +609,7 @@ function Team() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
                 whileHover={{ y: -10 }}
-                className="group flex-shrink-0 w-[260px] md:w-[280px] h-[400px] md:h-[440px] cursor-pointer"
+                className="group flex-shrink-0 w-[260px] md:w-[280px] h-[400px] md:h-[440px] cursor-pointer" style={{ scrollSnapAlign: 'center' }}
               >
                 <div className="rounded-3xl overflow-hidden h-full w-full border border-white/10 bg-slate-900/50">
                   <div className="relative h-[65%] w-full overflow-hidden">
@@ -656,7 +656,7 @@ function Team() {
           
           <button
             onClick={() => scroll('right')}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 h-12 w-12 rounded-full glass border border-white/10 flex items-center justify-center hover:bg-white/20 transition-all"
+            className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-10 h-12 w-12 rounded-full glass border border-white/10 flex items-center justify-center hover:bg-white/20 transition-all"
           >
             <ChevronRight className="w-6 h-6 text-white" />
           </button>
