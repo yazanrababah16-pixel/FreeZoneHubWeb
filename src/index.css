@@ -2,11 +2,11 @@
 @import "tailwindcss";
 
 :root {
-  /* Light Theme Palette */
-  --bg-primary: #F7F7F7;
-  --bg-secondary: #FFFFFF;
-  --bg-card: rgba(255, 255, 255, 0.8);
-  --border: #E8E8E8;
+  /* Dark Theme Palette */
+  --bg-primary: #111111;
+  --bg-secondary: #1E1E1E;
+  --bg-card: rgba(30, 30, 30, 0.8);
+  --dark-border: #333333;
   
   /* Orange Accent */
   --accent-orange: #FF6B00;
@@ -15,9 +15,9 @@
   --accent-orange-end: #FF9A4D;
   
   /* Text */
-  --text-primary: #1A1A1A;
-  --text-secondary: #888888;
+  --text-primary: #EEEEEE;
   --text-muted: #888888;
+  --text-dark: #1A1A1A;
   
   /* Additional */
   --green: #16A34A;
@@ -26,8 +26,8 @@
   --blue-secondary: #1A237E;
   
   /* Glass */
-  --glass: rgba(255, 255, 255, 0.7);
-  --glass-border: rgba(255, 255, 255, 0.5);
+  --glass: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
 }
 
 * {
@@ -48,8 +48,8 @@ html {
 
 body {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  background: #F7F7F7;
-  color: #1A1A1A;
+  background: #111111;
+  color: #EEEEEE;
   overflow-x: hidden;
 }
 
