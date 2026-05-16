@@ -219,111 +219,23 @@ function BehindTheScenes() {
         </p>
       </motion.div>
 
-      <div className="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.1 }}
-          className="aspect-video rounded-2xl overflow-hidden border border-white/10 bg-slate-900/50 relative group"
-        >
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="text-center p-4">
-              <Globe className="w-12 h-12 text-orange-500 mx-auto mb-2" />
-              <p className="text-gray-400">Team Collaboration</p>
-            </div>
-          </div>
-          <img 
-            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80" 
-            alt="Team collaboration"
-            className="w-full h-full object-cover opacity-50 group-hover:opacity-70 transition-opacity"
-          />
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2 }}
-          className="aspect-video rounded-2xl overflow-hidden border border-white/10 bg-slate-900/50 relative group"
-        >
-          <img 
-            src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&q=80" 
-            alt="Team meeting"
-            className="w-full h-full object-cover opacity-50 group-hover:opacity-70 transition-opacity"
-          />
-          <div className="absolute bottom-4 left-4">
-            <p className="text-white font-semibold">Planning Sessions</p>
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3 }}
-          className="aspect-video rounded-2xl overflow-hidden border border-white/10 bg-slate-900/50 relative group"
-        >
-          <img 
-            src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80" 
-            alt="Development work"
-            className="w-full h-full object-cover opacity-50 group-hover:opacity-70 transition-opacity"
-          />
-          <div className="absolute bottom-4 left-4">
-            <p className="text-white font-semibold">Development</p>
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.4 }}
-          className="aspect-video rounded-2xl overflow-hidden border border-white/10 bg-slate-900/50 relative group"
-        >
-          <img 
-            src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=80" 
-            alt="Team workspace"
-            className="w-full h-full object-cover opacity-50 group-hover:opacity-70 transition-opacity"
-          />
-          <div className="absolute bottom-4 left-4">
-            <p className="text-white font-semibold">Workspace</p>
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5 }}
-          className="aspect-video rounded-2xl overflow-hidden border border-white/10 bg-slate-900/50 relative group"
-        >
-          <img 
-            src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&q=80" 
-            alt="Training session"
-            className="w-full h-full object-cover opacity-50 group-hover:opacity-70 transition-opacity"
-          />
-          <div className="absolute bottom-4 left-4">
-            <p className="text-white font-semibold">Training</p>
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.6 }}
-          className="aspect-video rounded-2xl overflow-hidden border border-white/10 bg-slate-900/50 relative group"
-        >
-          <img 
-            src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80" 
-            alt="Team celebration"
-            className="w-full h-full object-cover opacity-50 group-hover:opacity-70 transition-opacity"
-          />
-          <div className="absolute bottom-4 left-4">
-            <p className="text-white font-semibold">Celebrations</p>
-          </div>
-        </motion.div>
+      <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+        {['team1.jpg', 'team2.jpeg', 'team3.jpeg', 'team4.jpg', 'team5.jpg', 'team6.jpeg', 'team7.jpeg', 'team8.jpeg'].map((img, i) => (
+          <motion.div
+            key={img}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.1 }}
+            className="aspect-[3/4] rounded-2xl overflow-hidden border border-white/10 relative group"
+          >
+            <img 
+              src={`/FreeZoneHubWeb/team/${img}`}
+              alt={`Team ${i + 1}`}
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+          </motion.div>
+        ))}
       </div>
     </section>
   )
