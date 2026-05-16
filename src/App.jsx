@@ -14,7 +14,7 @@ const teamMembers = [
     name: 'Ahmad Mansour', 
     title: 'Team Leader & Lead Backend Engineer', 
     responsibilities: 'Event Operations Coordinator & Sales Associate, Social Impact Initiative, Backend integration support, and dashboard prototyping.',
-    expertise: 'Flutter, Dart, UI/UX Design, Firebase',
+    expertise: 'Event Operations Coordinator & Sales Associate, Social Impact Initiative, Flutter, Dart, UI/UX Design, Firebase',
     image: '/FreeZoneHubWeb/team/Ahmad sadeq.jpg',
     wa: 'https://wa.me/962798062360',
     linkedin: 'https://www.linkedin.com/in/ahmad-mansour-781217337/'
