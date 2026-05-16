@@ -104,7 +104,7 @@ const techSpecs = [
   { icon: Code2, title: 'Flutter', desc: 'Cross-platform mobile framework for iOS & Android', color: 'from-cyan-500 to-blue-500' },
   { icon: Search, title: 'Firebase', desc: 'Real-time database, authentication & cloud functions', color: 'from-amber-500 to-orange-500' },
   { icon: PenTool, title: 'Dart', desc: 'Type-safe programming language optimized for UI', color: 'from-blue-500 to-indigo-500' },
-  { icon: ShieldAlert, title: 'Cloud Integration', desc: 'Scalable GCP infrastructure with auto-scaling', color: 'from-purple-500 to-pink-500' },
+  { icon: ShieldAlert, title: 'Cloud Integration', desc: 'Scalable GCP infrastructure with auto-scaling', color: 'from-orange-500 to-amber-500' },
 ]
 
 const phases = [
@@ -210,7 +210,7 @@ function Hero() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(34,211,238,0.08)_0%,_transparent_50%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_rgba(168,85,247,0.06)_0%,_transparent_50%)]" />
       <div className="absolute top-32 left-0 w-[600px] h-[600px] bg-cyan-500/5 rounded-full blur-[180px]" />
-      <div className="absolute bottom-0 right-0 w-[700px] h-[700px] bg-purple-500/5 rounded-full blur-[180px]" />
+      <div className="absolute bottom-0 right-0 w-[700px] h-[700px] bg-orange-500/5 rounded-full blur-[180px]" />
 
       <div className="relative z-10 w-full flex flex-col items-center justify-center">
         <div className="max-w-7xl mx-auto px-6 py-32 grid lg:grid-cols-2 gap-24 items-center w-full">
@@ -230,7 +230,7 @@ function Hero() {
                 FreeZone Hub:
               </span>
               <br />
-              <span className="bg-gradient-to-r from-orange-500 via-purple-400 to-cyan-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
+              <span className="bg-gradient-to-r from-orange-500 via-orange-400 to-cyan-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
                 Redefining
               </span>
               <br />
@@ -247,7 +247,7 @@ function Hero() {
                 href="#journey"
                 whileHover={{ scale: 1.05, boxShadow: '0 0 60px rgba(34,211,238,0.4)' }}
                 whileTap={{ scale: 0.95 }}
-                className="px-10 py-5 rounded-2xl font-semibold bg-gradient-to-r from-cyan-500 via-purple-500 to-cyan-500 text-white shadow-2xl shadow-cyan-500/20 flex items-center gap-3 text-lg cursor-pointer"
+                className="px-10 py-5 rounded-2xl font-semibold bg-gradient-to-r from-orange-500 to-orange-600 text-white shadow-2xl shadow-cyan-500/20 flex items-center gap-3 text-lg cursor-pointer"
               >
                 Get Started
                 <ChevronRight className="w-5 h-5" />
@@ -335,7 +335,7 @@ function AppPreview() {
         >
           <p className="text-orange-500 font-medium mb-6 tracking-[0.25em] uppercase text-sm">App Preview</p>
           <h1 className="text-4xl md:text-6xl font-bold text-white">
-            Experience the <span className="bg-gradient-to-r from-orange-500 via-purple-400 to-pink-400 bg-clip-text text-transparent">Future</span> of Trading
+            Experience the <span className="bg-gradient-to-r from-orange-500 via-orange-400 to-orange-400 bg-clip-text text-transparent">Future</span> of Trading
           </h1>
         </motion.div>
 
@@ -374,7 +374,7 @@ function AppPreview() {
                     <span className="text-slate-400 text-xs md:text-sm">Verified</span>
                   </div>
                   <div className="glass rounded-2xl p-4 md:p-6 border border-white/10 flex flex-col items-center justify-center">
-                    <Users className="w-8 h-8 md:w-12 md:h-12 text-purple-400 mb-2" />
+                    <Users className="w-8 h-8 md:w-12 md:h-12 text-orange-400 mb-2" />
                     <span className="text-white font-bold text-lg md:text-2xl">2K+</span>
                     <span className="text-slate-400 text-xs md:text-sm">Users</span>
                   </div>
@@ -415,13 +415,13 @@ function AppPreview() {
 function Journey() {
   return (
     <section id="journey" className="py-56 relative w-full flex flex-col items-center">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(168,85,247,0.05)_0%,_transparent_70%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(255,107,0,0.05)_0%,_transparent_70%)]" />
       
       <div className="w-full flex flex-col items-center max-w-6xl mx-auto px-6">
         <SectionTitle subtitle="Project Journey" title="Development Phases" />
 
         <div className="relative w-full max-w-5xl">
-          <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-cyan-500 via-purple-500 to-cyan-500 -translate-x-1/2 shadow-[0_0_30px_rgba(34,211,238,0.5)]" />
+          <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-orange-500 to-orange-600 -translate-x-1/2 shadow-[0_0_30px_rgba(34,211,238,0.5)]" />
 
           {phases.map((item, i) => {
             const isLeft = i % 2 === 0
@@ -452,7 +452,7 @@ function Journey() {
                   <motion.div
                     whileHover={{ scale: 1.4, rotate: 360 }}
                     transition={{ duration: 0.6 }}
-                    className="w-20 h-20 rounded-3xl bg-gradient-to-br from-cyan-500 to-purple-600 flex items-center justify-center shadow-[0_0_40px_rgba(34,211,238,0.4)]"
+                    className="w-20 h-20 rounded-3xl bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center shadow-[0_0_40px_rgba(255,107,0,0.4)]"
                   >
                     <item.icon className="w-9 h-9 text-white" />
                   </motion.div>
@@ -542,7 +542,7 @@ function FeatureSection() {
               href="#team"
               whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(34,211,238,0.4)' }}
               whileTap={{ scale: 0.95 }}
-              className="px-10 py-5 rounded-2xl font-semibold bg-gradient-to-r from-cyan-500 via-purple-500 to-cyan-500 text-white shadow-2xl shadow-cyan-500/20 flex items-center gap-3 text-lg cursor-pointer"
+              className="px-10 py-5 rounded-2xl font-semibold bg-gradient-to-r from-orange-500 to-orange-600 text-white shadow-2xl shadow-cyan-500/20 flex items-center gap-3 text-lg cursor-pointer"
             >
               Explore All Features
               <ChevronRight className="w-5 h-5" />
@@ -748,7 +748,7 @@ function AboutSection() {
             ].map((item, idx) => (
               <div key={idx} className="flex flex-col gap-2">
                 <p className="text-slate-500 text-sm">{item.label}</p>
-                <span className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-orange-500 to-purple-400 bg-clip-text text-transparent">
+                <span className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-orange-500 to-orange-400 bg-clip-text text-transparent">
                   {item.value}
                 </span>
               </div>
@@ -763,8 +763,8 @@ function AboutSection() {
 
 function TechSpecs() {
   return (
-    <section id="tech" className="py-56 relative w-full flex flex-col items-center">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_rgba(59,130,246,0.05)_0%,_transparent_50%)]" />
+    <section id="tech" className="py-32 md:py-40 relative w-full flex flex-col items-center">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_rgba(255,107,0,0.05)_0%,_transparent_50%)]" />
       <div className="w-full flex flex-col items-center max-w-7xl mx-auto px-6">
         <SectionTitle subtitle="Technical Specs" title="Our Technology Stack" />
 
@@ -777,7 +777,7 @@ function TechSpecs() {
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: i * 0.1 }}
               whileHover={{ y: -12 }}
-              className="glass rounded-3xl p-12 border border-white/10 text-center group hover:border-purple-500/30 transition-all duration-500 max-w-xs"
+              className="glass rounded-3xl p-8 border border-white/10 text-center group hover:border-orange-500/30 transition-all duration-500 max-w-xs"
             >
               <motion.div
                 whileHover={{ rotate: 360 }}
