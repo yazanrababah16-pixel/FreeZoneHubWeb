@@ -122,7 +122,7 @@ function TeamShowcase() {
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.8, delay: 0.2 }}
           className="min-h-screen flex items-center justify-center py-20 px-6"
-          style={{ backgroundColor: index % 3 === 0 ? '#111111' : index % 3 === 1 ? '#1E1E1E' : '#FF6B00' }}
+          style={{ backgroundColor: index % 2 === 0 ? '#111111' : '#1E1E1E' }}
         >
           <div className="max-w-6xl w-full grid md:grid-cols-2 gap-12 items-center">
             <motion.div 
