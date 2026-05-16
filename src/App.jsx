@@ -11,10 +11,10 @@ import {
 const teamMembers = [
   { 
     id: '1', 
-    name: 'Ahmad Sadeq', 
-    title: 'Team Leader & Backend Developer', 
-    responsibilities: 'Project architecture, server-side development, API integration, database management, and team coordination.',
-    expertise: 'Node.js, Python, PostgreSQL, Cloud Architecture, System Design',
+    name: 'Ahmad Mansour', 
+    title: 'Team Leader, Event Operations Coordinator & Sales Associate', 
+    responsibilities: 'Project coordination, operations management, sales strategy alignment, backend integration support, and dashboard prototyping.',
+    expertise: 'Flutter, Dart, Firebase, UI/UX Design',
     image: '/FreeZoneHubWeb/team/Ahmad sadeq.jpg',
     wa: 'https://wa.me/962798062360',
     linkedin: 'https://www.linkedin.com/in/ahmad-mansour-781217337/'
@@ -22,9 +22,9 @@ const teamMembers = [
   { 
     id: '2', 
     name: 'Yazan BaniKhair', 
-    title: 'Software Engineer & Flutter Developer', 
-    responsibilities: 'Mobile app development, cross-platform solutions, UI implementation, and app optimization.',
-    expertise: 'Flutter, Dart, Firebase, State Management, REST APIs',
+    title: 'Lead Mobile Application Developer & DevOps Engineer', 
+    responsibilities: 'Architecture design, full mobile application development, cross-platform UI engineering, cloud services integration, and automated deployment pipelines.',
+    expertise: 'Flutter, Dart, Firebase, CI/CD (GitHub Actions)',
     image: '/FreeZoneHubWeb/team/Yazan.jpeg?v=2',
     wa: 'https://wa.me/962777356430',
     linkedin: 'https://www.linkedin.com/in/yazan-rababah-106351245/'
@@ -32,9 +32,9 @@ const teamMembers = [
   { 
     id: '3', 
     name: 'Ahmad Natour', 
-    title: 'UI/UX Designer', 
-    responsibilities: 'User interface design, user experience research, wireframing, prototyping, and visual design.',
-    expertise: 'Figma, Adobe XD, User Research, Design Systems, Prototyping',
+    title: 'Lead UI/UX Designer & Frontend Developer', 
+    responsibilities: 'User research, wireframing, high-fidelity UI visual prototyping, and implementing the web showcase frontend architecture.',
+    expertise: 'Figma, React, Tailwind CSS, Responsive Design',
     image: '/FreeZoneHubWeb/team/Ahmad nator.jpg',
     wa: 'https://wa.me/962793830307',
     linkedin: 'https://www.linkedin.com/in/ahmad-alnatour-553183362/'
@@ -42,9 +42,9 @@ const teamMembers = [
   { 
     id: '4', 
     name: 'Adel Abu Hajar', 
-    title: 'Backend Developer', 
-    responsibilities: 'Server development, database optimization, security implementation, and API endpoints.',
-    expertise: 'PHP, Laravel, MySQL, API Development, Security',
+    title: 'Senior Backend Engineer & Database Administrator', 
+    responsibilities: 'Database schema modeling, cloud architecture design, query optimization, security rules enforcement, and data transaction security.',
+    expertise: 'Firebase Firestore, Cloud Functions, Node.js, GCP',
     image: '/FreeZoneHubWeb/team/Adel.jpg',
     wa: 'https://wa.me/96279601436',
     linkedin: 'https://www.linkedin.com/in/adel-abu-hajar-03a4a81a9/'
@@ -52,9 +52,9 @@ const teamMembers = [
   { 
     id: '5', 
     name: 'Tareq Jarrar', 
-    title: 'UI/UX Designer', 
-    responsibilities: 'Visual design, branding, interface creation, and design consistency across platforms.',
-    expertise: 'UI Design, Illustration, Branding, Motion Graphics',
+    title: 'Quality Assurance & Software Testing Engineer', 
+    responsibilities: 'Crafting test suits, cross-device performance testing, data structure validation, and documenting the final system verification report for graduation defense.',
+    expertise: 'Unit Testing, Integration Testing, Security Hardening, Performance Tuning',
     image: '/FreeZoneHubWeb/team/Tareq.jpg',
     wa: 'https://wa.me/962788602694',
     linkedin: null
@@ -122,7 +122,7 @@ function TeamShowcase() {
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.8, delay: 0.2 }}
           className="min-h-screen flex items-center justify-center py-20 px-6"
-          style={{ backgroundColor: index % 2 === 0 ? '#111111' : '#1a1a1a' }}
+          style={{ backgroundColor: index % 3 === 0 ? '#111111' : index % 3 === 1 ? '#1E1E1E' : '#FF6B00' }}
         >
           <div className="max-w-6xl w-full grid md:grid-cols-2 gap-12 items-center">
             <motion.div 
