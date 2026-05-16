@@ -138,7 +138,7 @@ function Navbar() {
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-20">
         <motion.div whileHover={{ scale: 1.03 }} className="flex items-center gap-3">
           <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center shadow-xl shadow-cyan-500/25">
-            <Sparkles className="w-6 h-6 text-white" />
+            <Sparkles className="w-6 h-6 text-gray-900" />
           </div>
           <span className="text-2xl font-bold tracking-tight">FreeZone Hub</span>
         </motion.div>
@@ -148,7 +148,7 @@ function Navbar() {
             <motion.a
               key={item}
               href={`#${item.toLowerCase()}`}
-              className="text-base font-medium text-slate-400 hover:text-white transition-colors relative"
+              className="text-base font-medium text-slate-400 hover:text-gray-900 transition-colors relative"
               whileHover={{ y: -3 }}
             >
               {item}
@@ -162,13 +162,13 @@ function Navbar() {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="px-7 py-3 rounded-2xl bg-gradient-to-r from-cyan-500 to-orange-600 text-white text-sm font-semibold shadow-xl shadow-cyan-500/25"
+            className="px-7 py-3 rounded-2xl bg-gradient-to-r from-cyan-500 to-orange-600 text-gray-900 text-sm font-semibold shadow-xl shadow-cyan-500/25"
           >
             Get Started
           </motion.button>
         </div>
 
-        <button className="md:hidden text-white p-3" onClick={() => setIsOpen(!isOpen)}>
+        <button className="md:hidden text-gray-900 p-3" onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
         </button>
       </div>
@@ -183,7 +183,7 @@ function Navbar() {
             <a
               key={item}
               href={`#${item.toLowerCase()}`}
-              className="block px-8 py-5 text-slate-400 hover:text-white text-lg"
+              className="block px-8 py-5 text-slate-400 hover:text-gray-900 text-lg"
               onClick={() => setIsOpen(false)}
             >
               {item}
@@ -234,7 +234,7 @@ function Hero() {
                 Redefining
               </span>
               <br />
-              <span className="text-white">Car Trading in Jordan</span>
+              <span className="text-gray-900">Car Trading in Jordan</span>
             </motion.h1>
 
             <motion.p variants={fadeInUp} className="text-xl md:text-2xl text-slate-400 mb-16 max-w-2xl leading-relaxed">
@@ -247,7 +247,7 @@ function Hero() {
                 href="#journey"
                 whileHover={{ scale: 1.05, boxShadow: '0 0 60px rgba(34,211,238,0.4)' }}
                 whileTap={{ scale: 0.95 }}
-                className="px-10 py-5 rounded-2xl font-semibold bg-gradient-to-r from-cyan-500 via-purple-500 to-cyan-500 text-white shadow-2xl shadow-cyan-500/20 flex items-center gap-3 text-lg cursor-pointer"
+                className="px-10 py-5 rounded-2xl font-semibold bg-gradient-to-r from-cyan-500 via-purple-500 to-cyan-500 text-gray-900 shadow-2xl shadow-cyan-500/20 flex items-center gap-3 text-lg cursor-pointer"
               >
                 Get Started
                 <ChevronRight className="w-5 h-5" />
@@ -256,7 +256,7 @@ function Hero() {
                 href="#features"
                 whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(168,85,247,0.3)' }}
                 whileTap={{ scale: 0.95 }}
-                className="px-10 py-5 rounded-2xl font-semibold glass border border-white/10 text-white flex items-center gap-3 text-lg hover:bg-white/5 cursor-pointer"
+                className="px-10 py-5 rounded-2xl font-semibold glass border border-white/10 text-gray-900 flex items-center gap-3 text-lg hover:bg-white/5 cursor-pointer"
               >
                 View Demo
               </motion.a>
@@ -267,7 +267,7 @@ function Hero() {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-orange-600/20 rounded-[3rem] blur-3xl" />
               <div className="relative glass rounded-[3rem] p-8 border border-white/10">
-                <div className="bg-slate-900/50 rounded-2xl p-6 aspect-video flex items-center justify-center">
+                <div className="bg-gray-100 rounded-2xl p-6 aspect-video flex items-center justify-center">
                   <div className="text-center">
                     <Car className="w-20 h-20 mx-auto mb-4 text-orange-500" />
                     <p className="text-slate-400 text-lg">App Preview</p>
@@ -334,7 +334,7 @@ function AppPreview() {
           className="text-center mb-16 w-full"
         >
           <p className="text-orange-500 font-medium mb-6 tracking-[0.25em] uppercase text-sm">App Preview</p>
-          <h1 className="text-4xl md:text-6xl font-bold text-white">
+          <h1 className="text-4xl md:text-6xl font-bold text-gray-900">
             Experience the <span className="bg-gradient-to-r from-orange-500 via-purple-400 to-pink-400 bg-clip-text text-transparent">Future</span> of Trading
           </h1>
         </motion.div>
@@ -352,51 +352,51 @@ function AppPreview() {
               }}
               className="max-w-5xl -mt-12 mx-auto h-[25rem] md:h-[40rem] w-full border-4 border-[#6C6C6C] p-2 md:p-6 bg-[#1a1a2e] rounded-[30px] shadow-2xl"
             >
-              <div className="h-full w-full overflow-hidden rounded-2xl bg-[#030712] md:rounded-2xl p-4 md:p-8">
+              <div className="h-full w-full overflow-hidden rounded-2xl bg-white md:rounded-2xl p-4 md:p-8">
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 h-full">
                   <div className="col-span-2 md:col-span-4 glass rounded-2xl p-4 md:p-6 flex items-center justify-between border border-white/10">
                     <div>
-                      <h3 className="text-white text-lg md:text-2xl font-bold">FreeZone Hub</h3>
+                      <h3 className="text-gray-900 text-lg md:text-2xl font-bold">FreeZone Hub</h3>
                       <p className="text-slate-400 text-sm">Smart Car Trading</p>
                     </div>
                     <div className="w-10 h-10 md:w-14 md:h-14 rounded-full bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center">
-                      <Sparkles className="w-5 h-6 md:w-7 md:h-7 text-white" />
+                      <Sparkles className="w-5 h-6 md:w-7 md:h-7 text-gray-900" />
                     </div>
                   </div>
                   <div className="glass rounded-2xl p-4 md:p-6 border border-white/10 flex flex-col items-center justify-center">
                     <Car className="w-8 h-8 md:w-12 md:h-12 text-orange-500 mb-2" />
-                    <span className="text-white font-bold text-lg md:text-2xl">500+</span>
+                    <span className="text-gray-900 font-bold text-lg md:text-2xl">500+</span>
                     <span className="text-slate-400 text-xs md:text-sm">Vehicles</span>
                   </div>
                   <div className="glass rounded-2xl p-4 md:p-6 border border-white/10 flex flex-col items-center justify-center">
                     <ShieldCheck className="w-8 h-8 md:w-12 md:h-12 text-green-400 mb-2" />
-                    <span className="text-white font-bold text-lg md:text-2xl">100%</span>
+                    <span className="text-gray-900 font-bold text-lg md:text-2xl">100%</span>
                     <span className="text-slate-400 text-xs md:text-sm">Verified</span>
                   </div>
                   <div className="glass rounded-2xl p-4 md:p-6 border border-white/10 flex flex-col items-center justify-center">
                     <Users className="w-8 h-8 md:w-12 md:h-12 text-purple-400 mb-2" />
-                    <span className="text-white font-bold text-lg md:text-2xl">2K+</span>
+                    <span className="text-gray-900 font-bold text-lg md:text-2xl">2K+</span>
                     <span className="text-slate-400 text-xs md:text-sm">Users</span>
                   </div>
                   <div className="glass rounded-2xl p-4 md:p-6 border border-white/10 flex flex-col items-center justify-center">
                     <Star className="w-8 h-8 md:w-12 md:h-12 text-amber-400 mb-2" />
-                    <span className="text-white font-bold text-lg md:text-2xl">4.9</span>
+                    <span className="text-gray-900 font-bold text-lg md:text-2xl">4.9</span>
                     <span className="text-slate-400 text-xs md:text-sm">Rating</span>
                   </div>
                   <div className="col-span-2 md:col-span-4 glass rounded-2xl p-4 md:p-6 border border-white/10">
-                    <h4 className="text-white font-semibold mb-3 text-sm md:text-lg">Recent Listings</h4>
+                    <h4 className="text-gray-900 font-semibold mb-3 text-sm md:text-lg">Recent Listings</h4>
                     <div className="space-y-2">
                       <div className="flex items-center gap-3 p-2 rounded-xl bg-white/5">
                         <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-gradient-to-br from-slate-700 to-slate-800" />
                         <div className="flex-1">
-                          <p className="text-white text-xs md:text-sm font-medium">Toyota Camry 2023</p>
+                          <p className="text-gray-900 text-xs md:text-sm font-medium">Toyota Camry 2023</p>
                           <p className="text-orange-500 text-xs">JD 32,000</p>
                         </div>
                       </div>
                       <div className="flex items-center gap-3 p-2 rounded-xl bg-white/5">
                         <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-gradient-to-br from-slate-700 to-slate-800" />
                         <div className="flex-1">
-                          <p className="text-white text-xs md:text-sm font-medium">Honda Accord 2022</p>
+                          <p className="text-gray-900 text-xs md:text-sm font-medium">Honda Accord 2022</p>
                           <p className="text-orange-500 text-xs">JD 28,500</p>
                         </div>
                       </div>
@@ -454,7 +454,7 @@ function Journey() {
                     transition={{ duration: 0.6 }}
                     className="w-20 h-20 rounded-3xl bg-gradient-to-br from-cyan-500 to-purple-600 flex items-center justify-center shadow-[0_0_40px_rgba(34,211,238,0.4)]"
                   >
-                    <item.icon className="w-9 h-9 text-white" />
+                    <item.icon className="w-9 h-9 text-gray-900" />
                   </motion.div>
                 </div>
 
@@ -517,7 +517,7 @@ function FeatureSection() {
                 className="flex flex-col items-center text-center"
               >
                 <div className="mb-4 text-pink-400">{category.icon}</div>
-                <h3 className="font-semibold text-white text-lg mb-3">
+                <h3 className="font-semibold text-gray-900 text-lg mb-3">
                   {category.title}
                 </h3>
                 <ul className="space-y-2 text-slate-400">
@@ -542,7 +542,7 @@ function FeatureSection() {
               href="#team"
               whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(34,211,238,0.4)' }}
               whileTap={{ scale: 0.95 }}
-              className="px-10 py-5 rounded-2xl font-semibold bg-gradient-to-r from-cyan-500 via-purple-500 to-cyan-500 text-white shadow-2xl shadow-cyan-500/20 flex items-center gap-3 text-lg cursor-pointer"
+              className="px-10 py-5 rounded-2xl font-semibold bg-gradient-to-r from-cyan-500 via-purple-500 to-cyan-500 text-gray-900 shadow-2xl shadow-cyan-500/20 flex items-center gap-3 text-lg cursor-pointer"
             >
               Explore All Features
               <ChevronRight className="w-5 h-5" />
@@ -593,7 +593,7 @@ function Team() {
             onClick={() => scroll('left')}
             className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-10 h-12 w-12 rounded-full glass border border-white/10 flex items-center justify-center hover:bg-white/20 transition-all"
           >
-            <ChevronLeft className="w-6 h-6 text-white" />
+            <ChevronLeft className="w-6 h-6 text-gray-900" />
           </button>
           
           <div 
@@ -611,7 +611,7 @@ function Team() {
                 whileHover={{ y: -10 }}
                 className="group flex-shrink-0 w-[260px] md:w-[280px] h-[400px] md:h-[440px] cursor-pointer" style={{ scrollSnapAlign: 'center' }}
               >
-                <div className="rounded-3xl overflow-hidden h-full w-full border border-white/10 bg-slate-900/50">
+                <div className="rounded-3xl overflow-hidden h-full w-full border border-white/10 bg-gray-100">
                   <div className="relative h-[65%] w-full overflow-hidden">
                     <img
                       src={item.image}
@@ -620,7 +620,7 @@ function Team() {
                     />
                   </div>
                   <div className="p-6 flex flex-col items-center text-center h-[35%] justify-center">
-                    <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">{item.title}</h3>
                     <p className="text-orange-500 text-sm mb-4">{item.role}</p>
                     <div className="flex gap-3">
                       <motion.a
@@ -629,7 +629,7 @@ function Team() {
                         rel="noopener noreferrer"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-green-500 to-emerald-600 text-white text-sm font-semibold"
+                        className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-green-500 to-emerald-600 text-gray-900 text-sm font-semibold"
                       >
                         <MessageCircle className="w-4 h-4" />
                         WhatsApp
@@ -641,7 +641,7 @@ function Team() {
                           rel="noopener noreferrer"
                           whileHover={{ scale: 1.05 }}
                           whileTap={{ scale: 0.95 }}
-                          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-blue-500 to-blue-700 text-white text-sm font-semibold"
+                          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-blue-500 to-blue-700 text-gray-900 text-sm font-semibold"
                         >
                           <Link className="w-4 h-4" />
                           LinkedIn
@@ -658,7 +658,7 @@ function Team() {
             onClick={() => scroll('right')}
             className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-10 h-12 w-12 rounded-full glass border border-white/10 flex items-center justify-center hover:bg-white/20 transition-all"
           >
-            <ChevronRight className="w-6 h-6 text-white" />
+            <ChevronRight className="w-6 h-6 text-gray-900" />
           </button>
         </div>
       </div>
@@ -784,7 +784,7 @@ function TechSpecs() {
                 transition={{ duration: 1 }}
                 className={`w-24 h-24 mx-auto mb-10 rounded-3xl bg-gradient-to-br ${tech.color} flex items-center justify-center shadow-2xl p-6`}
               >
-                <tech.icon className="w-12 h-12 text-white" />
+                <tech.icon className="w-12 h-12 text-gray-900" />
               </motion.div>
               <h3 className="text-3xl font-bold mb-6">{tech.title}</h3>
               <p className="text-lg text-slate-500 leading-relaxed">{tech.desc}</p>
@@ -829,7 +829,7 @@ function Footer() {
           className="flex items-center justify-center gap-4 mb-10"
         >
           <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center shadow-xl shadow-cyan-500/25">
-            <Sparkles className="w-6 h-6 text-white" />
+            <Sparkles className="w-6 h-6 text-gray-900" />
           </div>
           <span className="text-3xl font-bold tracking-tight">FreeZone Hub</span>
         </motion.div>
@@ -844,7 +844,7 @@ function Footer() {
 
 function App() {
   return (
-    <div className="min-h-screen bg-[#030712] w-full flex flex-col items-center">
+    <div className="min-h-screen bg-white w-full flex flex-col items-center">
       <Navbar />
       <Hero />
       <AppPreview />
