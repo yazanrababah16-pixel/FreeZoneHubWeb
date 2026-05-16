@@ -204,7 +204,7 @@ function Hero() {
       {/* Glow Effects - shadcn style */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[400px] overflow-hidden pointer-events-none flex items-center">
         <div className="absolute left-1/2 -translate-x-1/2 w-[60%] h-[256px] bg-[radial-gradient(ellipse_at_center,rgba(34,211,238,0.5)_10%,transparent_60%)] sm:h-[512px] blur-[100px]" />
-        <div className="absolute left-1/2 -translate-x-1/2 w-[40%] h-[128px] bg-[radial-gradient(ellipse_at_center,rgba(168,85,247,0.3)_10%,transparent_60%)] sm:h-[256px] blur-[80px] mt-20" />
+        <div className="absolute left-1/2 -translate-x-1/2 w-[40%] h-[128px] bg-[radial-gradient(ellipse_at_center,rgba(255,107,0,0.3)_10%,transparent_60%)] sm:h-[256px] blur-[80px] mt-20" />
       </div>
 
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(34,211,238,0.08)_0%,_transparent_50%)]" />
@@ -423,17 +423,17 @@ function Journey() {
         <div className="relative w-full max-w-5xl">
           <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-orange-500 to-orange-600 -translate-x-1/2 shadow-[0_0_30px_rgba(255,107,0,0.3)]" />
 
-          {phases.map((item, i) => {
-            const isLeft = i % 2 === 0
-            return (
-              <motion.div
-                key={item.phase}
-                initial={{ opacity: 0, x: isLeft ? -120 : 120 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: i * 0.15 }}
-                className="relative flex items-center mb-32 last:mb-0 w-full"
-              >
+           {phases.map((item, i) => {
+             const isLeft = i % 2 === 0
+             return (
+               <motion.div
+                 key={item.phase}
+                 initial={{ opacity: 0, x: isLeft ? -80 : 80 }}
+                 whileInView={{ opacity: 1, x: 0 }}
+                 viewport={{ once: true }}
+                 transition={{ duration: 0.8, delay: i * 0.15 }}
+                 className="relative flex items-center mb-32 last:mb-0 w-full"
+               >
                 <div className={`w-1/2 flex ${isLeft ? 'justify-end' : 'justify-start'}`}>
                   {isLeft && (
                     <div className="glass rounded-3xl p-10 border border-white/10 hover:border-orange-500/30 transition-all duration-500 max-w-lg text-center mr-20">
@@ -494,9 +494,9 @@ function FeatureSection() {
           className="text-center mb-16 w-full"
         >
           <p className="text-orange-500 font-medium mb-6 tracking-[0.25em] uppercase text-sm">Platform Features</p>
-          <h2 className="text-5xl md:text-6xl font-bold tracking-tight mb-6">
-            Designed <span className="text-pink-400">for You</span>
-          </h2>
+           <h2 className="text-5xl md:text-6xl font-bold tracking-tight mb-6">
+             Designed <span className="text-orange-500">for You</span>
+           </h2>
           <p className="text-xl text-slate-400 max-w-2xl mx-auto">
             Everything you need for seamless car trading and inspection in Jordan's free zone market.
           </p>
@@ -516,7 +516,7 @@ function FeatureSection() {
                 variants={itemVariants}
                 className="flex flex-col items-center text-center"
               >
-                <div className="mb-4 text-pink-400">{category.icon}</div>
+                 <div className="mb-4 text-orange-500">{category.icon}</div>
                 <h3 className="font-semibold text-white text-lg mb-3">
                   {category.title}
                 </h3>
@@ -580,9 +580,9 @@ function Team() {
           className="text-center mb-16 w-full"
         >
           <p className="text-orange-500 font-medium mb-6 tracking-[0.25em] uppercase text-sm">Meet the Team</p>
-          <h2 className="text-5xl md:text-6xl font-bold tracking-tight mb-6">
-            Our <span className="text-pink-400">Innovators</span>
-          </h2>
+           <h2 className="text-5xl md:text-6xl font-bold tracking-tight mb-6">
+             Our <span className="text-orange-500">Innovators</span>
+           </h2>
           <p className="text-xl text-slate-400 max-w-2xl mx-auto">
             Explore our collection of talented individuals dedicated to transforming car trading in Jordan.
           </p>
