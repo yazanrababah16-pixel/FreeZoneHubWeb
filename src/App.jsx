@@ -137,7 +137,7 @@ function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-20">
         <motion.div whileHover={{ scale: 1.03 }} className="flex items-center gap-3">
-          <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-cyan-400 to-purple-500 flex items-center justify-center shadow-xl shadow-cyan-500/25">
+          <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center shadow-xl shadow-cyan-500/25">
             <Sparkles className="w-6 h-6 text-white" />
           </div>
           <span className="text-2xl font-bold tracking-tight">FreeZone Hub</span>
@@ -153,7 +153,7 @@ function Navbar() {
             >
               {item}
               <motion.span 
-                className="absolute -bottom-2 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-purple-500"
+                className="absolute -bottom-2 left-0 w-0 h-0.5 bg-gradient-to-r from-orange-500 to-orange-600"
                 whileHover={{ width: '100%' }}
                 transition={{ duration: 0.3 }}
               />
@@ -162,7 +162,7 @@ function Navbar() {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="px-7 py-3 rounded-2xl bg-gradient-to-r from-cyan-500 to-purple-500 text-white text-sm font-semibold shadow-xl shadow-cyan-500/25"
+            className="px-7 py-3 rounded-2xl bg-gradient-to-r from-cyan-500 to-orange-600 text-white text-sm font-semibold shadow-xl shadow-cyan-500/25"
           >
             Get Started
           </motion.button>
@@ -220,7 +220,7 @@ function Hero() {
             variants={staggerContainer}
             className="flex flex-col items-center text-center"
           >
-            <motion.div variants={fadeInUp} className="inline-flex items-center gap-3 px-6 py-3 rounded-full glass border border-cyan-500/20 mb-12">
+            <motion.div variants={fadeInUp} className="inline-flex items-center gap-3 px-6 py-3 rounded-full glass border border-orange-500/20 mb-12">
               <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse" />
               <span className="text-base text-slate-300 font-medium">Jordan Free Zone's Premier Platform</span>
             </motion.div>
@@ -230,7 +230,7 @@ function Hero() {
                 FreeZone Hub:
               </span>
               <br />
-              <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
+              <span className="bg-gradient-to-r from-orange-500 via-purple-400 to-cyan-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
                 Redefining
               </span>
               <br />
@@ -265,11 +265,11 @@ function Hero() {
 
           <motion.div style={{ y }} className="hidden lg:block relative">
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-purple-500/20 rounded-[3rem] blur-3xl" />
+              <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-orange-600/20 rounded-[3rem] blur-3xl" />
               <div className="relative glass rounded-[3rem] p-8 border border-white/10">
                 <div className="bg-slate-900/50 rounded-2xl p-6 aspect-video flex items-center justify-center">
                   <div className="text-center">
-                    <Car className="w-20 h-20 mx-auto mb-4 text-cyan-400" />
+                    <Car className="w-20 h-20 mx-auto mb-4 text-orange-500" />
                     <p className="text-slate-400 text-lg">App Preview</p>
                     <p className="text-slate-600 text-sm mt-2">Coming Soon</p>
                   </div>
@@ -294,7 +294,7 @@ function SectionTitle({ subtitle, title }) {
       transition={{ duration: 0.8 }}
       className="text-center mb-24 w-full"
     >
-      <p className="text-cyan-400 font-medium mb-6 tracking-[0.25em] uppercase text-sm">{subtitle}</p>
+      <p className="text-orange-500 font-medium mb-6 tracking-[0.25em] uppercase text-sm">{subtitle}</p>
       <h2 className="text-5xl md:text-6xl font-bold tracking-tight">{title}</h2>
     </motion.div>
   )
@@ -333,9 +333,9 @@ function AppPreview() {
           style={{ translateY: translate }}
           className="text-center mb-16 w-full"
         >
-          <p className="text-cyan-400 font-medium mb-6 tracking-[0.25em] uppercase text-sm">App Preview</p>
+          <p className="text-orange-500 font-medium mb-6 tracking-[0.25em] uppercase text-sm">App Preview</p>
           <h1 className="text-4xl md:text-6xl font-bold text-white">
-            Experience the <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">Future</span> of Trading
+            Experience the <span className="bg-gradient-to-r from-orange-500 via-purple-400 to-pink-400 bg-clip-text text-transparent">Future</span> of Trading
           </h1>
         </motion.div>
 
@@ -359,12 +359,12 @@ function AppPreview() {
                       <h3 className="text-white text-lg md:text-2xl font-bold">FreeZone Hub</h3>
                       <p className="text-slate-400 text-sm">Smart Car Trading</p>
                     </div>
-                    <div className="w-10 h-10 md:w-14 md:h-14 rounded-full bg-gradient-to-br from-cyan-400 to-purple-500 flex items-center justify-center">
+                    <div className="w-10 h-10 md:w-14 md:h-14 rounded-full bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center">
                       <Sparkles className="w-5 h-6 md:w-7 md:h-7 text-white" />
                     </div>
                   </div>
                   <div className="glass rounded-2xl p-4 md:p-6 border border-white/10 flex flex-col items-center justify-center">
-                    <Car className="w-8 h-8 md:w-12 md:h-12 text-cyan-400 mb-2" />
+                    <Car className="w-8 h-8 md:w-12 md:h-12 text-orange-500 mb-2" />
                     <span className="text-white font-bold text-lg md:text-2xl">500+</span>
                     <span className="text-slate-400 text-xs md:text-sm">Vehicles</span>
                   </div>
@@ -390,14 +390,14 @@ function AppPreview() {
                         <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-gradient-to-br from-slate-700 to-slate-800" />
                         <div className="flex-1">
                           <p className="text-white text-xs md:text-sm font-medium">Toyota Camry 2023</p>
-                          <p className="text-cyan-400 text-xs">JD 32,000</p>
+                          <p className="text-orange-500 text-xs">JD 32,000</p>
                         </div>
                       </div>
                       <div className="flex items-center gap-3 p-2 rounded-xl bg-white/5">
                         <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-gradient-to-br from-slate-700 to-slate-800" />
                         <div className="flex-1">
                           <p className="text-white text-xs md:text-sm font-medium">Honda Accord 2022</p>
-                          <p className="text-cyan-400 text-xs">JD 28,500</p>
+                          <p className="text-orange-500 text-xs">JD 28,500</p>
                         </div>
                       </div>
                     </div>
@@ -436,9 +436,9 @@ function Journey() {
               >
                 <div className={`w-1/2 flex ${isLeft ? 'justify-end' : 'justify-start'}`}>
                   {isLeft && (
-                    <div className="glass rounded-3xl p-10 border border-white/10 hover:border-cyan-500/30 transition-all duration-500 max-w-lg text-center mr-16">
+                    <div className="glass rounded-3xl p-10 border border-white/10 hover:border-orange-500/30 transition-all duration-500 max-w-lg text-center mr-16">
                       <div className="flex items-center justify-center gap-3 mb-6">
-                        <span className="px-5 py-2 rounded-full bg-gradient-to-r from-cyan-500/10 to-purple-500/10 text-cyan-400 text-sm font-semibold border border-cyan-500/20">
+                        <span className="px-5 py-2 rounded-full bg-gradient-to-r from-cyan-500/10 to-orange-600/10 text-orange-500 text-sm font-semibold border border-orange-500/20">
                           {item.phase}
                         </span>
                       </div>
@@ -460,9 +460,9 @@ function Journey() {
 
                 <div className={`w-1/2 flex ${isLeft ? 'justify-start' : 'justify-end'}`}>
                   {!isLeft && (
-                    <div className="glass rounded-3xl p-10 border border-white/10 hover:border-cyan-500/30 transition-all duration-500 max-w-lg text-center ml-16">
+                    <div className="glass rounded-3xl p-10 border border-white/10 hover:border-orange-500/30 transition-all duration-500 max-w-lg text-center ml-16">
                       <div className="flex items-center justify-center gap-3 mb-6">
-                        <span className="px-5 py-2 rounded-full bg-gradient-to-r from-cyan-500/10 to-purple-500/10 text-cyan-400 text-sm font-semibold border border-cyan-500/20">
+                        <span className="px-5 py-2 rounded-full bg-gradient-to-r from-cyan-500/10 to-orange-600/10 text-orange-500 text-sm font-semibold border border-orange-500/20">
                           {item.phase}
                         </span>
                       </div>
@@ -493,7 +493,7 @@ function FeatureSection() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16 w-full"
         >
-          <p className="text-cyan-400 font-medium mb-6 tracking-[0.25em] uppercase text-sm">Platform Features</p>
+          <p className="text-orange-500 font-medium mb-6 tracking-[0.25em] uppercase text-sm">Platform Features</p>
           <h2 className="text-5xl md:text-6xl font-bold tracking-tight mb-6">
             Designed <span className="text-pink-400">for You</span>
           </h2>
@@ -579,7 +579,7 @@ function Team() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16 w-full"
         >
-          <p className="text-cyan-400 font-medium mb-6 tracking-[0.25em] uppercase text-sm">Meet the Team</p>
+          <p className="text-orange-500 font-medium mb-6 tracking-[0.25em] uppercase text-sm">Meet the Team</p>
           <h2 className="text-5xl md:text-6xl font-bold tracking-tight mb-6">
             Our <span className="text-pink-400">Innovators</span>
           </h2>
@@ -621,7 +621,7 @@ function Team() {
                   </div>
                   <div className="p-6 flex flex-col items-center text-center h-[35%] justify-center">
                     <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
-                    <p className="text-cyan-400 text-sm mb-4">{item.role}</p>
+                    <p className="text-orange-500 text-sm mb-4">{item.role}</p>
                     <div className="flex gap-3">
                       <motion.a
                         href={item.wa}
@@ -707,7 +707,7 @@ function AboutSection() {
               viewport={{ once: true }}
               className="flex-1 glass rounded-3xl p-8 border border-white/10"
             >
-              <Globe className="w-12 h-12 text-cyan-400 mb-4" />
+              <Globe className="w-12 h-12 text-orange-500 mb-4" />
               <p className="text-lg font-semibold mb-2">Innovating Car Trading</p>
               <p className="text-slate-400 mb-6">Building cutting-edge solutions that transform the automotive marketplace in Jordan with technology.</p>
             </motion.div>
@@ -748,7 +748,7 @@ function AboutSection() {
             ].map((item, idx) => (
               <div key={idx} className="flex flex-col gap-2">
                 <p className="text-slate-500 text-sm">{item.label}</p>
-                <span className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+                <span className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-orange-500 to-purple-400 bg-clip-text text-transparent">
                   {item.value}
                 </span>
               </div>
@@ -805,7 +805,7 @@ function TechSpecs() {
               {['Flutter', 'Firebase', 'Dart', 'GCP'].map((tech) => (
                 <span
                   key={tech}
-                  className="px-6 py-3 rounded-2xl bg-gradient-to-r from-cyan-500/10 to-purple-500/10 text-cyan-400 text-base font-semibold border border-cyan-500/20"
+                  className="px-6 py-3 rounded-2xl bg-gradient-to-r from-cyan-500/10 to-orange-600/10 text-orange-500 text-base font-semibold border border-orange-500/20"
                 >
                   {tech}
                 </span>
@@ -828,7 +828,7 @@ function Footer() {
           viewport={{ once: true }}
           className="flex items-center justify-center gap-4 mb-10"
         >
-          <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-cyan-400 to-purple-500 flex items-center justify-center shadow-xl shadow-cyan-500/25">
+          <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center shadow-xl shadow-cyan-500/25">
             <Sparkles className="w-6 h-6 text-white" />
           </div>
           <span className="text-3xl font-bold tracking-tight">FreeZone Hub</span>
