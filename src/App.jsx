@@ -421,7 +421,7 @@ function Journey() {
         <SectionTitle subtitle="Project Journey" title="Development Phases" />
 
         <div className="relative w-full max-w-5xl">
-          <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-orange-500 to-orange-600 -translate-x-1/2 shadow-[0_0_30px_rgba(34,211,238,0.5)]" />
+          <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-orange-500 to-orange-600 -translate-x-1/2 shadow-[0_0_30px_rgba(255,107,0,0.3)]" />
 
           {phases.map((item, i) => {
             const isLeft = i % 2 === 0
@@ -436,9 +436,9 @@ function Journey() {
               >
                 <div className={`w-1/2 flex ${isLeft ? 'justify-end' : 'justify-start'}`}>
                   {isLeft && (
-                    <div className="glass rounded-3xl p-10 border border-white/10 hover:border-orange-500/30 transition-all duration-500 max-w-lg text-center mr-16">
+                    <div className="glass rounded-3xl p-10 border border-white/10 hover:border-orange-500/30 transition-all duration-500 max-w-lg text-center mr-20">
                       <div className="flex items-center justify-center gap-3 mb-6">
-                        <span className="px-5 py-2 rounded-full bg-gradient-to-r from-cyan-500/10 to-orange-600/10 text-orange-500 text-sm font-semibold border border-orange-500/20">
+                        <span className="px-5 py-2 rounded-full bg-gradient-to-r from-orange-500/10 to-orange-600/10 text-orange-500 text-sm font-semibold border border-orange-500/20">
                           {item.phase}
                         </span>
                       </div>
@@ -460,9 +460,9 @@ function Journey() {
 
                 <div className={`w-1/2 flex ${isLeft ? 'justify-start' : 'justify-end'}`}>
                   {!isLeft && (
-                    <div className="glass rounded-3xl p-10 border border-white/10 hover:border-orange-500/30 transition-all duration-500 max-w-lg text-center ml-16">
+                    <div className="glass rounded-3xl p-10 border border-white/10 hover:border-orange-500/30 transition-all duration-500 max-w-lg text-center ml-20">
                       <div className="flex items-center justify-center gap-3 mb-6">
-                        <span className="px-5 py-2 rounded-full bg-gradient-to-r from-cyan-500/10 to-orange-600/10 text-orange-500 text-sm font-semibold border border-orange-500/20">
+                        <span className="px-5 py-2 rounded-full bg-gradient-to-r from-orange-500/10 to-orange-600/10 text-orange-500 text-sm font-semibold border border-orange-500/20">
                           {item.phase}
                         </span>
                       </div>
@@ -805,7 +805,7 @@ function TechSpecs() {
               {['Flutter', 'Firebase', 'Dart', 'GCP'].map((tech) => (
                 <span
                   key={tech}
-                  className="px-6 py-3 rounded-2xl bg-gradient-to-r from-cyan-500/10 to-orange-600/10 text-orange-500 text-base font-semibold border border-orange-500/20"
+                  className="px-6 py-3 rounded-2xl bg-gradient-to-r from-orange-500/10 to-orange-600/10 text-orange-500 text-base font-semibold border border-orange-500/20"
                 >
                   {tech}
                 </span>
